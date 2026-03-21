@@ -31,69 +31,32 @@ Ask your AI to find you a 60,000-mile business class flight to Tokyo. It'll sear
 
 ## Quick Start
 
-### Option 1: Work from this directory (easiest)
-
-```bash
-git clone https://github.com/borski/travel-hacking-toolkit.git
-cd travel-hacking-toolkit
-```
-
-**Launch OpenCode:**
-
-```bash
-opencode
-```
-
-OpenCode reads `opencode.json` from the project directory automatically. The free servers (Skiplagged, Kiwi, Trivago, Ferryhopper, Airbnb) work immediately with zero config.
-
-**Launch Claude Code:**
-
-```bash
-claude --strict-mcp-config --mcp-config .mcp.json
-```
-
-The `--strict-mcp-config` flag tells Claude Code to load MCP servers exclusively from the provided config file. This is more reliable than auto-discovery ([known issue](https://github.com/anthropics/claude-code/issues/5037)).
-
-#### Adding your API keys
-
-Some MCP servers and all skills need API keys. Add them once and they load every session.
-
-**OpenCode:**
-
-```bash
-cp .env.example .env
-# Edit .env with your API keys
-```
-
-**Claude Code:**
-
-```bash
-cp .claude/settings.local.json.example .claude/settings.local.json
-# Edit .claude/settings.local.json with your API keys
-```
-
-This file is auto-gitignored by Claude Code. Keys are loaded as environment variables.
-
-### Option 2: Install globally
-
 ```bash
 git clone https://github.com/borski/travel-hacking-toolkit.git
 cd travel-hacking-toolkit
 ./scripts/setup.sh
 ```
 
-The setup script copies skills to your tool's global skills directory and creates API key config files.
+The setup script walks you through everything: picks your tool (OpenCode, Claude Code, or both), creates your API key config files, installs dependencies, and optionally installs skills system-wide.
 
-### Minimum Setup
-
-You don't need every API key. Start with these two for the core experience:
+The 5 free MCP servers (Skiplagged, Kiwi, Trivago, Ferryhopper, Airbnb) work immediately with zero API keys. For the full experience, add at minimum:
 
 | Key | Why | Free Tier |
 |-----|-----|-----------|
 | `SEATS_AERO_API_KEY` | Award flight search. The main event. | No (Pro ~$8/mo) |
 | `SERPAPI_API_KEY` | Cash price comparison for "points or cash?" decisions | Yes (100 searches/mo) |
 
-Everything else adds capability but isn't required.
+Then launch your tool:
+
+```bash
+# OpenCode
+opencode
+
+# Claude Code
+claude --strict-mcp-config --mcp-config .mcp.json
+```
+
+The `--strict-mcp-config` flag tells Claude Code to load MCP servers from the config file directly. This is more reliable than auto-discovery ([known issue](https://github.com/anthropics/claude-code/issues/5037)).
 
 ## How It Works
 
@@ -119,7 +82,7 @@ The core question: **"Should I burn points or pay cash?"**
 
 1. **Search award availability** — Seats.aero across 25+ programs
 2. **Search cash prices** — SerpAPI (Google Flights) or Skiplagged
-3. **Calculate portal value** — Cash price ÷ 0.015 = Chase UR equivalent
+3. **Estimate portal value** — Portal rates are dynamic now. Chase "Points Boost" (June 2025) offers 1.5 to 2.0cpp on select bookings, not a flat rate. Amex/Capital One ~1.0cpp. Check the actual portal for your specific booking.
 4. **Compare** — Lower number wins
 5. **Check balances** — AwardWallet confirms you have enough
 6. **Book it** — Use booking links from Seats.aero or Duffel
@@ -149,7 +112,12 @@ travel-hacking-toolkit/
 ├── .opencode/
 │   └── skills -> ../skills         # Symlink to skills
 ├── data/
-│   └── points-valuations.json      # Points/miles valuations from 4 sources
+│   ├── alliances.json              # Airline alliance membership + booking relationships
+│   ├── hotel-chains.json           # Hotel chains, sub-brands, loyalty programs, reverse lookup
+│   ├── partner-awards.json         # Which programs book which airlines (alliance + bilateral)
+│   ├── points-valuations.json      # Points/miles valuations from 4 sources (floor/ceiling)
+│   ├── sweet-spots.json            # High-value award redemptions + booking windows
+│   └── transfer-partners.json      # Credit card transfer partners + ratios
 ├── skills/
 │   ├── duffel/SKILL.md             # Real-time flight search
 │   ├── seats-aero/SKILL.md         # Award flight search
