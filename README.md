@@ -21,6 +21,12 @@ The 5 free MCP servers (Skiplagged, Kiwi, Trivago, Ferryhopper, Airbnb) work imm
 | `SEATS_AERO_API_KEY` | Award flight search. The main event. | No (Pro ~$8/mo) |
 | `SERPAPI_API_KEY` | Cash price comparison for "points or cash?" decisions | Yes (100 searches/mo) |
 
+For the Southwest skill (optional), pull the pre-built Docker image:
+
+```bash
+docker pull ghcr.io/borski/sw-fares:latest
+```
+
 Then launch your tool:
 
 ```bash
@@ -50,7 +56,10 @@ The `--strict-mcp-config` flag tells Claude Code to load MCP servers from the co
 
 | Skill | What It Does | API Key |
 |-------|-------------|---------|
-| **duffel** | Real-time flight search across airlines via Duffel API | [Duffel](https://duffel.com) |
+| **google-flights** | Browser-automated Google Flights search. Covers ALL airlines including Southwest. | None (free, requires [agent-browser](https://github.com/AidenLiminalAI/agent-browser)) |
+| **ignav** | Fast REST API flight search with booking links. Market selection for price arbitrage. | [Ignav](https://ignav.com) (1,000 free) |
+| **southwest** | Southwest.com fare classes, points pricing, Companion Pass data. All 4 fare classes, cash + points. | None (free, requires [Patchright](https://github.com/Kaliiiiiiiiii-Vinyzu/patchright). Docker support included.) |
+| **duffel** | Real-time GDS flight search across airlines via Duffel API | [Duffel](https://duffel.com) |
 | **seats-aero** | Award flight availability across 25+ mileage programs | [Seats.aero](https://seats.aero) Pro/Partner |
 | **awardwallet** | Loyalty program balances, elite status, history | [AwardWallet](https://business.awardwallet.com) Business |
 | **serpapi** | Google Flights cash prices, hotels, destination discovery | [SerpAPI](https://serpapi.com) |
@@ -81,12 +90,11 @@ Skiplagged, Kiwi.com, Trivago, Ferryhopper, and Airbnb need no setup at all. Lit
 
 The core question: **"Should I burn points or pay cash?"**
 
-1. **Search award availability** — Seats.aero across 25+ programs
-2. **Search cash prices** — SerpAPI (Google Flights) or Skiplagged
-3. **Estimate portal value** — Portal rates are dynamic now. Chase "Points Boost" (June 2025) offers 1.5 to 2.0cpp on select bookings, not a flat rate. Amex/Capital One ~1.0cpp. Check the actual portal for your specific booking.
-4. **Compare** — Lower number wins
-5. **Check balances** — AwardWallet confirms you have enough
-6. **Book it** — Use booking links from Seats.aero or Duffel
+1. **Search ALL flight sources** — Duffel + Ignav + Google Flights + Skiplagged + Kiwi for cash prices. Seats.aero for award availability. Southwest skill for SW-specific fare classes and points.
+2. **Estimate portal value** — Portal rates are dynamic now. Chase "Points Boost" (June 2025) offers 1.5 to 2.0cpp on select bookings, not a flat rate. Amex/Capital One ~1.0cpp. Check the actual portal for your specific booking.
+3. **Compare** — Lower number wins
+4. **Check balances** — AwardWallet confirms you have enough
+5. **Book it** — Use booking links from Seats.aero, Duffel, or Ignav
 
 ### Example Prompts
 
@@ -138,8 +146,9 @@ travel-hacking-toolkit/
 
 ## Credits
 
-Built on these excellent projects:
-
+- [ajimix/travel-hacking-toolkit](https://github.com/ajimix/travel-hacking-toolkit) — Fork that contributed the google-flights skill, ignav skill, market selection strategy, and markdown table output formatting
+- [Patchright](https://github.com/Kaliiiiiiiiii-Vinyzu/patchright) by [@Vinyzu](https://github.com/Vinyzu) — Undetected Playwright fork that makes the Southwest skill possible
+- [美卡指南 (US Card Guide)](https://www.google.com/maps/d/viewer?mid=1HygPCP9ghtDptTNnpUpd_C507Mq_Fhec) by Scott — FHR/THC/Chase Edit hotel property data via Google My Maps KML
 - [Seats.aero](https://seats.aero) — Award flight availability data
 - [AwardWallet](https://awardwallet.com) — Loyalty program tracking
 - [Duffel](https://duffel.com) — Real-time flight search and booking

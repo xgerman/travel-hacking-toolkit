@@ -1,4 +1,10 @@
-# Skill: Duffel Flights
+---
+name: duffel
+description: Real-time GDS flight search via Duffel API. Accurate per-fare-class pricing, cabin selection, multi-city, time preferences. Primary cash price source. Does not include Southwest.
+allowed-tools: Bash(curl *)
+---
+
+# Duffel Flights
 
 Search for real-time flight offers across airlines via the [Duffel API](https://duffel.com/docs/api). Returns live pricing, cabin details, baggage info, and booking links. Supports one-way, round-trip, and multi-city searches.
 
