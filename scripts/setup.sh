@@ -58,6 +58,7 @@ setup_api_keys() {
   echo "  For the full experience, add at minimum:"
   echo "    SEATS_AERO_API_KEY    Award flight search (the main event)"
   echo "    SERPAPI_API_KEY        Cash price comparison"
+  echo "    IGNAV_API_KEY          Flight search API (free 1,000 requests at ignav.com)"
   echo ""
 }
 
@@ -70,6 +71,54 @@ install_atlas_deps() {
   else
     echo "  npm not found. Atlas Obscura will auto-install on first use if Node.js is available."
   fi
+}
+
+# --- Optional tools ---
+install_optional_tools() {
+  echo ""
+  echo "Optional tools for additional flight search skills:"
+  echo ""
+
+  # agent-browser (for google-flights skill)
+  if command -v agent-browser &>/dev/null; then
+    echo "  ✓ agent-browser already installed (google-flights skill)"
+  else
+    echo "  agent-browser: Enables the google-flights skill (browser-automated Google Flights)."
+    read -rp "  Install agent-browser? [y/N]: " AB_CHOICE
+    if [[ "$AB_CHOICE" == "y" || "$AB_CHOICE" == "Y" ]]; then
+      npm install -g agent-browser && agent-browser install
+      echo "  ✓ agent-browser installed."
+    else
+      echo "  Skipped. google-flights skill won't work without it."
+    fi
+  fi
+
+  echo ""
+
+  # Southwest: Docker or Patchright
+  echo "  Southwest skill: searches southwest.com for fare classes and points pricing."
+  echo "  Requires either Docker (recommended) or Patchright (Python)."
+  echo ""
+
+  if command -v docker &>/dev/null; then
+    echo "  Docker detected. Pulling pre-built Southwest image..."
+    docker pull ghcr.io/borski/sw-fares:latest 2>/dev/null && echo "  ✓ Southwest Docker image ready." || echo "  Could not pull image. You can build locally: docker build -t sw-fares skills/southwest/"
+  else
+    echo "  Docker not found."
+    if python3 -c "import patchright" 2>/dev/null; then
+      echo "  ✓ Patchright already installed (southwest skill, headed mode)"
+    else
+      read -rp "  Install Patchright for Southwest skill? [y/N]: " PR_CHOICE
+      if [[ "$PR_CHOICE" == "y" || "$PR_CHOICE" == "Y" ]]; then
+        pip install patchright && patchright install chromium
+        echo "  ✓ Patchright installed. Southwest skill will open a Chrome window briefly."
+      else
+        echo "  Skipped. Southwest skill won't work without Docker or Patchright."
+      fi
+    fi
+  fi
+
+  echo ""
 }
 
 # --- Global install (optional) ---
@@ -118,6 +167,7 @@ install_skills_to() {
 # --- Run ---
 setup_api_keys
 install_atlas_deps
+install_optional_tools
 offer_global_install
 
 echo ""

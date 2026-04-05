@@ -146,14 +146,9 @@ travel-hacking-toolkit/
 
 ## Credits
 
-Community contributions and inspirations:
-
-- [ajimix/travel-hacking-toolkit](https://github.com/ajimix/travel-hacking-toolkit) — Fork that contributed the google-flights skill (agent-browser approach), ignav skill, market selection strategy, and markdown table output formatting
+- [ajimix/travel-hacking-toolkit](https://github.com/ajimix/travel-hacking-toolkit) — Fork that contributed the google-flights skill, ignav skill, market selection strategy, and markdown table output formatting
 - [Patchright](https://github.com/Kaliiiiiiiiii-Vinyzu/patchright) by [@Vinyzu](https://github.com/Vinyzu) — Undetected Playwright fork that makes the Southwest skill possible
 - [美卡指南 (US Card Guide)](https://www.google.com/maps/d/viewer?mid=1HygPCP9ghtDptTNnpUpd_C507Mq_Fhec) by Scott — FHR/THC/Chase Edit hotel property data via Google My Maps KML
-
-Built on these excellent projects:
-
 - [Seats.aero](https://seats.aero) — Award flight availability data
 - [AwardWallet](https://awardwallet.com) — Loyalty program tracking
 - [Duffel](https://duffel.com) — Real-time flight search and booking
