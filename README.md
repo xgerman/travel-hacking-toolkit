@@ -88,6 +88,8 @@ The `--strict-mcp-config` flag tells Claude Code to load MCP servers from the co
 | **seatmaps** | Aircraft seat maps, cabin dimensions, seat recommendations via SeatMaps.com + AeroLOPA | None (free, requires [agent-browser](https://github.com/AidenLiminalAI/agent-browser)) |
 | **american-airlines** | AAdvantage balance, elite status, loyalty points. AwardWallet doesn't support AA. | None (free, requires [Patchright](https://github.com/Kaliiiiiiiiii-Vinyzu/patchright). Docker support included.) |
 | **premium-hotels** | Search 4,659 Amex FHR/THC + Chase Edit hotels by city. Compare credits, find stacking opportunities. | None (free, local data) |
+| **transfer-partners** | Find the cheapest way to book awards using your transferable points. Cross-references seats.aero with transfer ratios from 6 card issuers. | None (free, local data) |
+| **trip-calculator** | "Cash or points?" answered with math. Compares total cost factoring in transfer ratios, taxes, and opportunity cost. | None (free, local data) |
 
 ## How It Works
 
@@ -176,6 +178,8 @@ travel-hacking-toolkit/
 │   │   └── scripts/
 │   │       └── check_balance.py    # Balance + status extractor
 │   ├── premium-hotels/SKILL.md     # FHR/THC/Chase Edit hotel comparison
+│   ├── transfer-partners/SKILL.md  # Transfer partner optimizer
+│   ├── trip-calculator/SKILL.md    # Cash vs points calculator
 │   └── scandinavia-transit/        # Nordic trains/buses/ferries
 │       └── SKILL.md
 ├── scripts/
