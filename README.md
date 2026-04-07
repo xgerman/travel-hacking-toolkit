@@ -45,6 +45,20 @@ docker pull ghcr.io/borski/aa-miles-check:latest
 docker run --rm -e AA_USERNAME=your_number -e AA_PASSWORD=your_pass ghcr.io/borski/aa-miles-check --json
 ```
 
+For the Chase and Amex Travel portal skills (optional), build Docker images locally:
+
+```bash
+# Chase Travel: UR portal pricing, Points Boost, Edit hotels
+docker build -t chase-travel skills/chase-travel/
+docker run --rm -v ~/.chase-travel-profiles:/profiles -e CHASE_USERNAME -e CHASE_PASSWORD \
+    chase-travel script /scripts/search_flights.py --origin SFO --dest CDG --depart 2026-08-11 --cabin business --json
+
+# Amex Travel: MR portal pricing, IAP discounts, FHR/THC hotels
+docker build -t amex-travel skills/amex-travel/
+docker run --rm -v ~/.amex-travel-profiles:/profiles -e AMEX_USERNAME -e AMEX_PASSWORD \
+    amex-travel script /app/search_flights.py --origin SFO --dest NRT --depart 2026-08-15 --cabin business --json
+```
+
 Then launch your tool:
 
 ```bash
@@ -90,6 +104,8 @@ The `--strict-mcp-config` flag tells Claude Code to load MCP servers from the co
 | **premium-hotels** | Search 4,659 Amex FHR/THC + Chase Edit hotels by city. Compare credits, find stacking opportunities. | None (free, local data) |
 | **transfer-partners** | Find the cheapest way to book awards using your transferable points. Cross-references seats.aero with transfer ratios from 6 card issuers. | None (free, local data) |
 | **trip-calculator** | "Cash or points?" answered with math. Compares total cost factoring in transfer ratios, taxes, and opportunity cost. | None (free, local data) |
+| **chase-travel** | Chase UR travel portal: flight + hotel search with Points Boost detection and Edit hotel benefits. Requires Sapphire Reserve or Preferred. | None (free, requires [Patchright](https://github.com/Kaliiiiiiiiii-Vinyzu/patchright). Docker support included.) |
+| **amex-travel** | Amex Travel portal: flight + hotel search with IAP discount detection and FHR/THC hotel benefits. Requires Platinum Card. | None (free, requires [Patchright](https://github.com/Kaliiiiiiiiii-Vinyzu/patchright). Docker support included.) |
 
 ## How It Works
 
@@ -131,6 +147,9 @@ The core question: **"Should I burn points or pay cash?"**
 "What's the seat pitch on Air France 83 in business class?"
 "How many AAdvantage miles do I have?"
 "Which FHR and Chase Edit hotels are in Stockholm? Any stacking opportunities?"
+"What's the Points Boost rate for SFO to Tokyo business class on Chase?"
+"Compare Amex IAP fares vs cash for business class to Paris"
+"Search Chase Edit hotels in Oslo and compare against FHR benefits"
 ```
 
 ## Project Structure
@@ -180,6 +199,17 @@ travel-hacking-toolkit/
 │   ├── premium-hotels/SKILL.md     # FHR/THC/Chase Edit hotel comparison
 │   ├── transfer-partners/SKILL.md  # Transfer partner optimizer
 │   ├── trip-calculator/SKILL.md    # Cash vs points calculator
+│   ├── chase-travel/               # Chase UR travel portal
+│   │   ├── SKILL.md
+│   │   ├── Dockerfile
+│   │   └── scripts/
+│   │       ├── search_flights.py   # Flight + hotel search
+│   │       └── record_search.py    # Network traffic capture (API discovery)
+│   ├── amex-travel/                # Amex Travel portal
+│   │   ├── SKILL.md
+│   │   ├── Dockerfile
+│   │   └── scripts/
+│   │       └── search_flights.py   # Flight + hotel search
 │   └── scandinavia-transit/        # Nordic trains/buses/ferries
 │       └── SKILL.md
 ├── scripts/

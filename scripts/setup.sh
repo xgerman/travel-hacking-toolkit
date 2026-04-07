@@ -104,6 +104,10 @@ install_optional_tools() {
     echo "  Docker detected. Pulling pre-built images..."
     docker pull ghcr.io/borski/sw-fares:latest 2>/dev/null && echo "  ✓ Southwest Docker image ready." || echo "  Could not pull SW image. Build locally: docker build -t sw-fares skills/southwest/"
     docker pull ghcr.io/borski/aa-miles-check:latest 2>/dev/null && echo "  ✓ American Airlines Docker image ready." || echo "  Could not pull AA image. Build locally: docker build -t aa-check skills/american-airlines/"
+    echo ""
+    echo "  Chase and Amex Travel portal skills (optional, build locally):"
+    echo "  docker build -t chase-travel skills/chase-travel/"
+    echo "  docker build -t amex-travel skills/amex-travel/"
   else
     echo "  Docker not found."
     if python3 -c "import patchright" 2>/dev/null; then
