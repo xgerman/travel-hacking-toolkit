@@ -2174,7 +2174,7 @@ def search_hotels_api(
     }
 
     # Create travel session (required before navigating to results)
-    create_travel_session(page)
+    session_result = create_travel_session(page)
 
     result = api_fetch(page, f"{SECURE_BASE}/hotel/search", "POST", search_body)
 
@@ -2270,6 +2270,17 @@ def search_hotels_api(
 
     encoded_sid = urllib.parse.quote(ssid, safe="")
     results_url = f"https://travelsecure.chase.com/results/hotels?h.s.sid={encoded_sid}&cnx-onprem=false"
+
+    # Add cnxtoken from session/create (required, same as flights)
+    cnx_token = ""
+    if session_result and isinstance(session_result, dict):
+        cnx_token = session_result.get("redirectionToken", "")
+    if not cnx_token:
+        cxl = extract_cxl_payload(page)
+        cnx_token = cxl.get("CSRF-Token", "") if cxl else ""
+    if cnx_token:
+        results_url += f"&cnxtoken={cnx_token}"
+
     print(f"Navigating to hotel results...", file=sys.stderr)
     page.goto(results_url, timeout=60000)
 
