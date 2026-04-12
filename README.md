@@ -144,7 +144,7 @@ Also use **tripadvisor** (under Destinations) for hotel ratings, rankings, subra
 | Skill | What It Does | API Key |
 |-------|-------------|---------|
 | **atlas-obscura** | Hidden gems and unusual attractions near any destination. | None (free) |
-| **scandinavia-transit** | Trains, buses, ferries in Norway, Sweden, and Denmark. | [Entur](https://developer.entur.org) + [Trafiklab](https://www.trafiklab.se) |
+| **scandinavia-transit** | Trains, buses, ferries in Norway, Sweden, and Denmark. Includes Danish fare/zone pricing. | [Entur](https://developer.entur.org) + [Trafiklab](https://www.trafiklab.se) + [Rejseplanen](https://labs.rejseplanen.dk) |
 | **tripadvisor** | Hotel ratings, restaurant search, attraction reviews, nearby search. 5K calls/month. | [TripAdvisor](https://www.tripadvisor.com/developers) |
 
 ## How It Works

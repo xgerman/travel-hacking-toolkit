@@ -47,7 +47,7 @@ Key concepts:
 ## Travel Planning
 
 - [Atlas Obscura](https://github.com/borski/travel-hacking-toolkit/blob/main/skills/atlas-obscura/SKILL.md): Hidden gems and unusual attractions by destination.
-- [Scandinavia Transit](https://github.com/borski/travel-hacking-toolkit/blob/main/skills/scandinavia-transit/SKILL.md): Train, bus, ferry routes within Norway, Sweden, Denmark.
+- [Scandinavia Transit](https://github.com/borski/travel-hacking-toolkit/blob/main/skills/scandinavia-transit/SKILL.md): Train, bus, ferry routes within Norway (Entur), Sweden (ResRobot), Denmark (Rejseplanen). Denmark includes fare/zone pricing.
 - [Seatmaps](https://github.com/borski/travel-hacking-toolkit/blob/main/skills/seatmaps/SKILL.md): Aircraft seat maps and cabin dimensions.
 
 ## Data Files
