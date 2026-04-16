@@ -4,16 +4,6 @@ AI-powered travel hacking with points, miles, and award flights. Drop-in skills 
 
 Ask your AI to find you a 60,000-mile business class flight to Tokyo. It'll search award availability across 25+ programs, compare against cash prices, check your loyalty balances, and tell you the best play.
 
-<p align="center">
-  <a href="https://www.star-history.com/?repos=borski%2Ftravel-hacking-toolkit&type=date&legend=top-left">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=borski/travel-hacking-toolkit&type=date&theme=dark&legend=top-left" />
-      <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=borski/travel-hacking-toolkit&type=date&legend=top-left" />
-      <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=borski/travel-hacking-toolkit&type=date&legend=top-left" width="500" />
-    </picture>
-  </a>
-</p>
-
 ## Quick Start
 
 ```bash
