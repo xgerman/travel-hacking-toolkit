@@ -6,7 +6,7 @@ license: MIT
 
 # Seats.aero Skill
 
-Search cached and live award flight availability across 25+ mileage programs. Find the cheapest award flights, compare programs, and get booking links.
+Search cached and live award flight availability across 27 mileage programs (including Spirit Free Spirit and Frontier Miles, added April 2026). Find the cheapest award flights, compare programs, and get booking links.
 
 **Source:** [seats.aero](https://seats.aero) | [API Docs](https://developers.seats.aero) | [Knowledge Base](https://docs.seats.aero)
 
@@ -332,6 +332,28 @@ The `cursor` is a Unix timestamp. Treat it as opaque. Rare duplicates are possib
 4. **Search window limits.** Airlines release awards at different advance windows. Check [release dates tool](https://seats.aero/tools/releases).
 5. **Already booked.** Award space changes constantly. Set alerts for notification when it opens.
 
+## Specialized Tools (Web UI Only)
+
+These tools are available on the seats.aero website but not via the Partner API:
+
+- **Alaska Upgrade Finder** ([seats.aero/alaska/upgrades](https://seats.aero/alaska/upgrades)): Find confirmable upgrade space for Alaska elites using Atmos Gold Guest Upgrade certificates. Dedicated tool for scanning upgrade availability.
+- **Etihad First Class Finder** ([seats.aero/etihad/first](https://seats.aero/etihad/first)): Dedicated tracker for newly available Etihad First Class seats. Etihad F is rare and highly sought after. This tool surfaces new availability faster than general search.
+- **Price History**: Fare trends over time are available on the web UI but not via API. Use the `seats-aero-web` skill (Patchright browser automation) to access price history charts.
+
+## Alert Features
+
+When creating alerts on seats.aero:
+
+- **Time filters**: Departure and arrival time ranges are available as alert filters. Useful for avoiding red-eyes or ensuring morning arrivals.
+- **Cabin, route, and program filters**: Standard alert parameters.
+- Alerts notify via email or push when matching availability appears.
+
+## Third-Party Integrations
+
+Pro account holders can connect seats.aero to third-party apps via the "Connect seats.aero" button on the website.
+
+- **aeroconnections.app** (by @wavydavy): Visualization tool that shows available connections from specific airports. Log in with your Pro account to see current award space mapped visually. Useful for exploring routing options you wouldn't think to search.
+
 ## Notes
 
 - All times in responses are local airport times.
@@ -342,4 +364,4 @@ The `cursor` is a Unix timestamp. Treat it as opaque. Rare duplicates are possib
 - Availability data is cached, not live. Check `ComputedLastSeen` for freshness.
 - Pro users: 1,000 API calls/day. Failed live searches don't count.
 - Free users can only search 30 days ahead. Pro unlocks 60+ days.
-- Price history (fare trends over time) is available on the Seats.aero web UI but not via API.
+- Post-search filters (max points, stops, duration, etc.) now apply directly to flight detail results, not just the search results list.

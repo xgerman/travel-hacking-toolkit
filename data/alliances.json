@@ -3,7 +3,7 @@
     "description": "Airline alliance membership and loyalty programs. Used for determining which programs can book which airlines.",
     "last_updated": "2026-03-31",
     "staleness_days": 90,
-    "notes": "ITA Airways left SkyTeam (Feb-Apr 2025), expected to join Star Alliance first half 2026. SAS moved from Star Alliance to SkyTeam Sep 1, 2024. Fiji Airways upgraded to full oneworld member 2025. Oman Air joined oneworld Jun 30, 2025. Hawaiian Airlines joining oneworld Apr 22, 2026 (3 weeks away)."
+    "notes": "ITA Airways left SkyTeam (Feb-Apr 2025), expected to join Star Alliance first half 2026. SAS moved from Star Alliance to SkyTeam Sep 1, 2024. Fiji Airways upgraded to full oneworld member 2025. Oman Air joined oneworld Jun 30, 2025. Hawaiian Airlines joining oneworld Apr 22, 2026 (6 days away)."
   },
 
   "star_alliance": {
@@ -63,7 +63,7 @@
       {"airline": "Oman Air", "iata": "WY", "country": "Oman", "loyalty_program": "Sindbad", "hubs": ["MCT"], "note": "Joined Jun 30, 2025"}
     ],
     "pending_members": [
-      {"airline": "Hawaiian Airlines", "iata": "HA", "country": "USA", "loyalty_program": "Atmos Rewards (via Alaska)", "hubs": ["HNL"], "expected_join": "2026-04-22", "note": "Part of Alaska Air Group. Will share Atmos Rewards program. Joining in 3 weeks."}
+      {"airline": "Hawaiian Airlines", "iata": "HA", "country": "USA", "loyalty_program": "Atmos Rewards (via Alaska)", "hubs": ["HNL"], "expected_join": "2026-04-22", "note": "Part of Alaska Air Group. Will share Atmos Rewards program. Joining in 6 days."}
     ],
     "potential_members": [
       {"airline": "Starlux Airlines", "iata": "JX", "country": "Taiwan", "note": "Has expressed interest, acceptance not confirmed"}
