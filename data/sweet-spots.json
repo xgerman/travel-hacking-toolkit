@@ -364,12 +364,13 @@
         "us_to_europe_british_airways": {"miles": 60000, "direction": "one-way", "surcharges": "$200-250 (LOWEST of any program for BA metal)"}
       },
       "ba_surcharge_comparison": {
-        "jal_mileage_bank": "$200-250 (BEST)",
+        "jal_mileage_bank": "$200-280 (BEST — FM confirmed $219 JFK→LHR, $279 JFK→MXP via LHR)",
+        "cathay_asia_miles": "$250-350 (moderate, better than AA/Alaska)",
+        "qantas_frequent_flyer": "$300-400",
         "ba_avios": "$500-800+",
-        "aadvantage": "$300-600",
-        "alaska_atmos": "$300-600",
-        "iberia_avios": "$400-700",
-        "note": "JAL is the cheapest way to book BA metal by a wide margin. BA's LHR hub connects to all of Europe."
+        "aadvantage": "$700+ each way (FM: 'high surcharges')",
+        "alaska_atmos": "$700-1,000 each way (FM: '$700 to $1,000 each way')",
+        "note": "JAL is the cheapest way to book BA metal by a wide margin. BA's LHR hub connects to all of Europe. Alaska/AA surcharges are 3-4x higher than JAL for the same BA flights."
       },
       "why": "JAL's cross-alliance partnerships with Emirates, AF/KLM, and BA are hidden gems. 60K for Emirates or AF J with much lower surcharges than booking through those airlines' own programs. THE key sweet spot: BA metal surcharges via JAL are only $200-250 — roughly HALF what BA Avios, AAdvantage, or Alaska charge. This makes JAL the best program for booking BA business class.",
       "transfer_partners": ["Capital One (4:3)", "Bilt (1:1)", "Marriott Bonvoy (60K:25K)"],
@@ -514,7 +515,7 @@
   "surcharge_guide": {
     "_description": "Programs that pass through heavy fuel surcharges on award tickets, dramatically reducing value",
     "avoid_for_surcharges": [
-      {"airline": "British Airways", "note": "Worst offender. $500-$800+ in surcharges on long-haul BA metal awards."},
+      {"airline": "British Airways", "note": "Worst offender. Alaska/Atmos charges $700-$1,000/way, AAdvantage $700+/way. JAL Mileage Bank is the ONLY program with reasonable BA surcharges (~$200-280/way). BA Avios own program: $500-$800+."},
       {"airline": "Lufthansa", "note": "Heavy surcharges on LH/LX/OS metal. Book via Aeroplan or United to avoid."},
       {"airline": "SWISS", "note": "Lufthansa Group, same surcharge issues."},
       {"airline": "Austrian Airlines", "note": "Lufthansa Group, same surcharge issues."},
