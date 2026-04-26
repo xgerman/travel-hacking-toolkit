@@ -6,12 +6,17 @@ sleep 1
 
 # Route to the right script:
 #   "change" or "check" -> check_change.py (login, check prices, list trips)
+#   "monitor"            -> monitor.py     (compare booked baselines vs current)
 #   "search" or flags    -> search_fares.py (new flight search)
 cmd="$1"
 case "$cmd" in
     change|check)
         shift
         python3 /app/check_change.py "$@"
+        ;;
+    monitor)
+        shift
+        python3 /app/monitor.py "$@"
         ;;
     search)
         shift

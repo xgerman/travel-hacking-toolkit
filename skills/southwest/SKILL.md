@@ -244,3 +244,94 @@ SW bookings use the legal name on the reservation, not nicknames. Use the exact 
 **Leg selection:**
 - Checkboxes: `label:has(input[type='checkbox'])` (visible labels, hidden inputs)
 - Continue: `button#form-mixin--submit-button` (text: "Explore options")
+
+### Important Limitation: Companion Pass Linked Reservations
+
+The `change` command DOES NOT WORK on Companion Pass-linked reservations. SW shows a banner: "Companion itinerary linked. To change it, cancel the companion's flight first."
+
+For CP-linked reservations (or any monitoring scenario where you don't want to log in), use the `monitor` subcommand instead. It uses the public fare-search flow and matches your booked flight number against current results. No login needed.
+
+## Fare Drop Monitor (monitor.py)
+
+Compare current SW fares against what you paid for booked flights. Reports any specific booked flight where the current price has dropped below the baseline (= reclaimable travel credit when you rebook).
+
+**No login needed.** Uses the public search-fares flow and matches by exact flight number. Works on CP-linked reservations where the change-flight flow is blocked.
+
+### Config File
+
+Provide a JSON array of trips:
+
+```json
+[
+  {
+    "name": "Trip name (display only)",
+    "confirmation": "ABC123",
+    "passenger": "Jane (free-text label, display only)",
+    "outbound": {
+      "origin": "SJC",
+      "dest": "SAN",
+      "date": "2026-04-30",
+      "flight_number": "4107",
+      "baseline_pts": 13000
+    },
+    "return": {
+      "origin": "SAN",
+      "dest": "SJC",
+      "date": "2026-05-03",
+      "flight_number": "4119",
+      "baseline_pts": 17500
+    }
+  }
+]
+```
+
+The `flight_number` MUST match exactly how SW displays it in search results. For multi-segment flights it includes spaces, e.g. `"3657 / 4630"`. The `return` leg can be omitted for one-way trips.
+
+### Docker Usage
+
+```bash
+# Check all trips in the config
+docker run --rm -v /path/to/trips.json:/app/trips.json:ro \
+  ghcr.io/borski/sw-fares monitor --config /app/trips.json
+
+# Check just one trip by confirmation number
+docker run --rm -v /path/to/trips.json:/app/trips.json:ro \
+  ghcr.io/borski/sw-fares monitor --config /app/trips.json --only ABC123
+
+# JSON output
+docker run --rm -v /path/to/trips.json:/app/trips.json:ro \
+  ghcr.io/borski/sw-fares monitor --config /app/trips.json --json
+```
+
+### Local Usage (opens Chrome window briefly)
+
+```bash
+python3 scripts/monitor.py --config /path/to/trips.json
+```
+
+### How It Works
+
+1. For each leg of each trip in the config:
+   - Navigate to SW homepage (resets SPA state between legs)
+   - Search the route + date in points fareType
+   - Validate the results URL contains the requested origin and dest (rejects stale renders)
+   - Find the SPECIFIC booked flight number in the results
+   - Read its current Basic fare in points
+   - Compare against `baseline_pts` from config
+2. Report savings (positive) or upcharge (negative) per leg, plus a trip-level total
+
+### After a Rebook
+
+If you rebook a leg to capture savings, update the `baseline_pts` for that leg in the config to the new (lower) paid amount. Otherwise the next monitor run will keep flagging the same opportunity falsely.
+
+### Why It's Better Than the Change Flow
+
+| | check_change | monitor |
+|--|---|----|
+| Login required | Yes | No |
+| Works on CP-linked reservations | No | Yes |
+| Shows alternatives at all times | Yes | No (only the booked flight) |
+| Brittle SW DOM dependencies | High (form clicks) | Low (URL params + text parse) |
+| Output detail | Full fare-class diffs for every alternative | Basic-fare diff for your exact booked flight |
+
+`monitor` is the right tool for routine baseline tracking. `check_change` is useful when you want to see ALL alternatives across all fare classes, but only on non-CP reservations.
