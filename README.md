@@ -117,6 +117,7 @@ Start here: the **orchestration skills** call everything else automatically.
 | **premium-hotels** | Search 4,659 Amex FHR/THC + Chase Edit hotels by city. Stacking opportunities. | None (local data) |
 | **rapidapi** | Booking.com hotel prices. | [RapidAPI](https://rapidapi.com) |
 | **serpapi** | Google Hotels search and destination discovery. | [SerpAPI](https://serpapi.com) |
+| **ticketsatwork** | TicketsAtWork (EBG) corporate-perks portal: hotels, theme park tickets, attractions, live events. Often beats portals by 10-30%. Docker: `ghcr.io/borski/ticketsatwork`. | None (requires TaW account + [Patchright](https://github.com/Kaliiiiiiiiii-Vinyzu/patchright)) |
 
 Also use **tripadvisor** (under Destinations) for hotel ratings, rankings, subratings, and reviews.
 
@@ -274,6 +275,15 @@ travel-hacking-toolkit/
 │   ├── premium-hotels/SKILL.md     # FHR/THC/Chase Edit local database
 │   ├── rapidapi/SKILL.md           # Booking.com prices
 │   ├── serpapi/SKILL.md            # Google Hotels + destination discovery
+│   ├── ticketsatwork/              # TaW corporate-perks portal (hotels + tickets)
+│   │   ├── SKILL.md
+│   │   ├── Dockerfile
+│   │   └── scripts/
+│   │       ├── search_hotels.py
+│   │       ├── search_cars.py
+│   │       ├── browse_tickets.py
+│   │       ├── taw_common.py
+│   │       └── entrypoint.sh
 │   │
 │   │  # ── Loyalty ──
 │   ├── american-airlines/          # AA AAdvantage balance

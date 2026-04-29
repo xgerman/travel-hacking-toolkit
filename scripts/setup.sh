@@ -104,6 +104,7 @@ install_optional_tools() {
     echo "  Docker detected. Pulling pre-built images..."
     docker pull ghcr.io/borski/sw-fares:latest 2>/dev/null && echo "  ✓ Southwest Docker image ready." || echo "  Could not pull SW image. Build locally: docker build -t sw-fares skills/southwest/"
     docker pull ghcr.io/borski/aa-miles-check:latest 2>/dev/null && echo "  ✓ American Airlines Docker image ready." || echo "  Could not pull AA image. Build locally: docker build -t aa-check skills/american-airlines/"
+    docker pull ghcr.io/borski/ticketsatwork:latest 2>/dev/null && echo "  ✓ TicketsAtWork Docker image ready." || echo "  Could not pull TaW image. Build locally: docker build -t ticketsatwork skills/ticketsatwork/"
     echo ""
     echo "  Chase and Amex Travel portal skills (optional, build locally):"
     echo "  docker build -t chase-travel skills/chase-travel/"
