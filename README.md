@@ -198,13 +198,12 @@ The `Dockerfile` in each skill directory shows exactly what's in the image. All 
 
 ### Skills
 
-Skills are markdown files that teach your AI how to call travel APIs and apply travel-hacking knowledge. They contain endpoint documentation, curl examples, useful jq filters, and workflow guidance. OpenCode, Claude Code, and Codex can all load them.
+Skills are markdown files that give your AI specialized travel-hacking capabilities. They come in two flavors:
 
-**Two flavors:**
-- **Tool skills** (duffel, seats-aero, southwest, etc.) wrap APIs and external tools.
-- **Reference skills** (flight-search-strategy, points-valuations, alliances, lessons-learned, etc.) carry the institutional knowledge that decides when and how to use the tool skills.
+- **Tool skills** (`duffel`, `seats-aero`, `southwest`, etc.) wrap APIs, browser automation, and external tools. They contain endpoint documentation, curl examples, useful jq filters, and step-by-step usage instructions.
+- **Reference skills** (`flight-search-strategy`, `points-valuations`, `alliances`, `lessons-learned`, etc.) carry the institutional knowledge that decides when and how to use the tool skills. They contain the workflow rules, lookup tables, and hard-won lessons that prevent common mistakes.
 
-Skills use **progressive disclosure**: each one's name and short description are loaded into context at session start. The agent reads the full SKILL.md only when it decides to use a skill. This keeps the always-loaded context small and lets the toolkit grow without bloating the agent's prompt.
+OpenCode, Claude Code, and Codex can all load them. Skills use **progressive disclosure**: each one's name and short description are loaded into context at session start. The agent reads the full SKILL.md only when it decides to use a skill. This keeps the always-loaded context small and lets the toolkit grow without bloating the agent's prompt.
 
 The `skills/` directory is the canonical source. The setup script either:
 - Installs a Codex plugin that points at the repo's skills and MCP config
@@ -214,11 +213,13 @@ The `skills/` directory is the canonical source. The setup script either:
 ### MCP Servers
 
 MCP (Model Context Protocol) servers give your AI real-time tools it can call directly. The configs are in:
+- `opencode.json` for OpenCode (auto-discovered from the repo root)
+- `.mcp.json` for Claude Code (auto-discovered from the repo root)
 - `plugins/travel-hacking-toolkit/.mcp.json` for Codex plugin installs
-- `opencode.json` for OpenCode
-- `.mcp.json` for Claude Code
 
 Skiplagged, Kiwi.com, Trivago, Ferryhopper, and Airbnb need no setup at all. LiteAPI is also a remote server but needs an API key configured in your settings.
+
+**Why Codex needs a plugin:** OpenCode and Claude Code both auto-discover MCP servers from a repo-local config file. Codex doesn't. It only loads MCP servers from `~/.codex/config.toml` or from an installed plugin. The toolkit ships a Codex plugin (under `plugins/travel-hacking-toolkit/`) that bundles the MCP config so Codex users get the same out-of-the-box experience as the other two tools. `setup.sh` wires this up automatically when you select the Codex option.
 
 ## Which Skill Do I Use?
 
@@ -228,25 +229,40 @@ Skiplagged, Kiwi.com, Trivago, Ferryhopper, and Airbnb need no setup at all. Lit
 
 "Find flights SFO to CDG"
   ├─ Know exact dates? → compare-flights (all sources in parallel)
-  └─ Flexible dates? → award-calendar (cheapest dates for a route)
+  └─ Flexible dates?   → award-calendar (cheapest dates for a route)
 
 "Find hotels in Paris"
-  └─→ compare-hotels (portals + metasearch + Airbnb)
+  ├─ Best overall      → compare-hotels (portals + metasearch + Airbnb)
+  ├─ Premium programs  → premium-hotels (FHR/THC/Edit)
+  └─ Discount pricing  → ticketsatwork (often beats portals 10-30%)
 
 "Should I use points or cash?"
   └─→ trip-calculator (CPP analysis + opportunity cost)
+      Reference: points-valuations (floor/ceiling rules)
 
 "Which of my points should I use?"
   └─→ transfer-partners (cheapest transfer path)
+      Reference: partner-awards (cross-alliance reachability)
 
-"Which FHR/Edit hotels are in Stockholm?"
-  └─→ premium-hotels (local data, instant)
+"Why is this redemption flagged as poor value?"
+  └─→ Reference skills: points-valuations, alliances, award-sweet-spots
+
+"Why am I not finding award space?"
+  └─→ lessons-learned (THE mandatory Seats.aero workflow rules)
+
+"A tool failed. Now what?"
+  └─→ fallback-and-resilience (per-tool recovery paths)
+
+"How do I actually book this?"
+  └─→ booking-guidance (booking flow, phone numbers, hold-before-transfer rule)
 
 "Check my SW reservations for price drops"
   └─→ southwest (change flight monitor)
 ```
 
 The **orchestration skills** (`trip-planner`, `compare-flights`, `compare-hotels`) call the individual source skills automatically. Start with those unless you need a specific source.
+
+The **reference skills** (`flight-search-strategy`, `points-valuations`, `partner-awards`, `alliances`, `award-sweet-spots`, `cabin-codes`, `hotel-chains`, `fallback-and-resilience`, `booking-guidance`, `lessons-learned`) auto-load on relevant context to provide deep institutional knowledge without you needing to invoke them explicitly.
 
 ## The Travel Hacking Workflow
 

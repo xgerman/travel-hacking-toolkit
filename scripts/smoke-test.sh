@@ -94,6 +94,24 @@ PY
   else
     fail "CLAUDE.md size ($size chars, exceeds 40k - will warn in Claude Code)"
   fi
+
+  # 5. Docker images exist on ghcr (manifest inspect needs no pull)
+  if command -v docker >/dev/null 2>&1; then
+    bad_images=0
+    for image in patchright-docker sw-fares aa-miles-check chase-travel amex-travel ticketsatwork; do
+      if ! docker manifest inspect "ghcr.io/borski/$image:latest" >/dev/null 2>&1; then
+        echo "      missing manifest: ghcr.io/borski/$image:latest"
+        bad_images=$((bad_images+1))
+      fi
+    done
+    if [ "$bad_images" -eq 0 ]; then
+      ok "all 6 Docker images exist on ghcr.io"
+    else
+      fail "$bad_images Docker images missing on ghcr.io"
+    fi
+  else
+    skip "docker not installed (skipping image manifest check)"
+  fi
 fi
 
 # --- Agent invocations ---

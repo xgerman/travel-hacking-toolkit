@@ -252,11 +252,12 @@ function Install-OptionalTools {
             -BuildContext 'skills\southwest' -LocalTag 'sw-fares'
         Invoke-DockerPull -Image 'ghcr.io/borski/aa-miles-check:latest' -Label 'American Airlines' `
             -BuildContext 'skills\american-airlines' -LocalTag 'aa-check'
-
-        Write-Host ""
-        Write-Host "  Chase and Amex Travel portal skills (optional, build locally):"
-        Write-Host "  docker build -t chase-travel skills\chase-travel\"
-        Write-Host "  docker build -t amex-travel skills\amex-travel\"
+        Invoke-DockerPull -Image 'ghcr.io/borski/ticketsatwork:latest' -Label 'TicketsAtWork' `
+            -BuildContext 'skills\ticketsatwork' -LocalTag 'ticketsatwork'
+        Invoke-DockerPull -Image 'ghcr.io/borski/chase-travel:latest' -Label 'Chase Travel' `
+            -BuildContext 'skills\chase-travel' -LocalTag 'chase-travel'
+        Invoke-DockerPull -Image 'ghcr.io/borski/amex-travel:latest' -Label 'Amex Travel' `
+            -BuildContext 'skills\amex-travel' -LocalTag 'amex-travel'
     } else {
         Write-Host "  Docker not found. (Install Docker Desktop: https://www.docker.com/products/docker-desktop/ or 'winget install Docker.DockerDesktop')"
         $pythonCmd = Resolve-PythonCommand
