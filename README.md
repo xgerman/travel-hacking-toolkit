@@ -1,6 +1,6 @@
 # Travel Hacking Toolkit
 
-AI-powered travel hacking with points, miles, and award flights. Drop-in skills and MCP servers for [Codex](https://openai.com/codex/), [OpenCode](https://opencode.ai), and [Claude Code](https://docs.anthropic.com/en/docs/claude-code).
+AI-powered travel hacking with points, miles, and award flights. Drop-in skills and MCP servers for [OpenCode](https://opencode.ai), [Claude Code](https://docs.anthropic.com/en/docs/claude-code), and [Codex](https://openai.com/codex/).
 
 Ask your AI to find you a 60,000-mile business class flight to Tokyo. It'll search award availability across 25+ programs, compare against cash prices, check your loyalty balances, and tell you the best play.
 
@@ -63,14 +63,14 @@ docker run --rm -v ~/.amex-travel-profiles:/profiles \
 Then launch your tool:
 
 ```bash
-# Codex
-source .env && codex
-
 # OpenCode
 opencode
 
 # Claude Code
 claude --strict-mcp-config --mcp-config .mcp.json
+
+# Codex
+source .env && codex
 ```
 
 The `--strict-mcp-config` flag tells Claude Code to load MCP servers from the config file directly. This is more reliable than auto-discovery ([known issue](https://github.com/anthropics/claude-code/issues/5037)).
@@ -154,7 +154,7 @@ Also use **tripadvisor** (under Destinations) for hotel ratings, rankings, subra
 
 ### Skills
 
-Skills are markdown files that teach your AI how to call travel APIs. They contain endpoint documentation, curl examples, useful jq filters, and workflow guidance. Codex, OpenCode, and Claude Code can all load them.
+Skills are markdown files that teach your AI how to call travel APIs. They contain endpoint documentation, curl examples, useful jq filters, and workflow guidance. OpenCode, Claude Code, and Codex can all load them.
 
 The `skills/` directory is the canonical source. The setup script either:
 - Installs a Codex plugin that points at the repo's skills and MCP config
@@ -232,7 +232,9 @@ The core question: **"Should I burn points or pay cash?"**
 
 ```
 travel-hacking-toolkit/
-├── .agents/plugins/marketplace.json # Repo-local Codex marketplace entry
+├── .agents/
+│   ├── plugins/marketplace.json    # Repo-local Codex marketplace entry
+│   └── skills -> ../skills         # Codex auto-discovery (no plugin install needed)
 ├── AGENTS.md -> CLAUDE.md          # OpenCode project instructions (symlink)
 ├── CLAUDE.md                       # Project instructions and workflow guidance
 ├── opencode.json                   # OpenCode MCP server config

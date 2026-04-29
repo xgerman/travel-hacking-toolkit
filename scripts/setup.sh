@@ -208,6 +208,12 @@ install_codex_plugin() {
   echo ""
   echo "Installing Codex plugin..."
 
+  if ! command -v python3 &>/dev/null; then
+    echo "  python3 not found. Skipping Codex plugin install." >&2
+    echo "  Install Python 3 (https://www.python.org/downloads/ or 'brew install python@3.12') and re-run setup." >&2
+    return 1
+  fi
+
   mkdir -p "$codex_plugins_dir" "$marketplace_dir"
 
   if [ -L "$codex_plugin_path" ] || [ -e "$codex_plugin_path" ]; then
