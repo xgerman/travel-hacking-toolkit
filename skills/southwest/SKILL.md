@@ -89,14 +89,23 @@ docker build -t sw-fares skills/southwest/
 
 ## Southwest Fare Classes
 
-| Fare | Points | Cash | Companion Pass | Change/Cancel | Bags |
-|------|--------|------|----------------|---------------|------|
-| Basic (Wanna Get Away) | Lowest | Lowest | **NO** | Credit only | 2 free |
-| Choice (Wanna Get Away Plus) | Low | Low | **YES** | Transferable credit | 2 free |
-| Choice Preferred (Anytime) | High | High | **YES** | Refundable | 2 free |
-| Choice Extra (Business Select) | Highest | Highest | **YES** | Refundable + priority | 2 free |
+**Baggage policy changed May 28, 2025.** For bookings on/after that date, checked bags are no longer free for most fares. First checked bag: $35. Second: $45. Carry-on is still free.
+
+| Fare | Points | Cash | Companion Pass | Change/Cancel | Checked Bags |
+|------|--------|------|----------------|---------------|--------------|
+| Basic (Wanna Get Away) | Lowest | Lowest | **NO** | Credit only | $35/$45 (or 1 free w/ SW credit card) |
+| Choice (Wanna Get Away Plus) | Low | Low | **YES** | Transferable credit | $35/$45 (or 1 free w/ SW credit card) |
+| Choice Preferred (Anytime) | High | High | **YES** | Refundable | $35/$45 (or 1 free w/ A-List) |
+| Choice Extra (Business Select) | Highest | Highest | **YES** | Refundable + priority | **2 free** |
+
+**Free checked bag eligibility (bookings on/after May 28, 2025):**
+- **2 free bags:** Business Select fare OR A-List Preferred status
+- **1 free bag:** A-List status OR Southwest co-branded credit card holder
+- **Everyone else:** $35 first bag, $45 second bag
 
 **Critical for Companion Pass:** Only Choice and above qualify. Basic does NOT. This changes the CPP math significantly.
+
+**Critical for cost comparisons:** Factor bag fees into total trip cost when comparing SW vs other airlines. A family of 5 checking bags on Basic fare without SW credit cards adds $175–$225 each way in bag fees.
 
 ## Companion Pass CPP Formula
 

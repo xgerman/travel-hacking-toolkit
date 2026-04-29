@@ -22,28 +22,49 @@ your local Docker image store. You must push to a registry `sbx` can reach.
 IMAGE=ghcr.io/xgerman/sbx-playwright:latest
 
 docker buildx build \
+  --platform linux/amd64 \
   --push \
   -t "$IMAGE" \
   sandbox/
 ```
 
-## Run first time
+> Use `linux/amd64` even on Apple Silicon — Docker Sandboxes runs amd64 microVMs.
+
+## Run
 
 ```bash
-# Select allow all network traffic
-sbx policy reset
-
-# Run the sandbox for the first time
-sbx run   --template ghcr.io/xgerman/sbx-playwright:latest  copilot
+sbx run \
+  --template ghcr.io/xgerman/sbx-playwright:latest \
+  --agent copilot \
+  --allow-domains \
+    registry.npmjs.org,\
+    cdn.playwright.dev,\
+    playwright.azureedge.net,\
+    playwright.download.prss.microsoft.com,\
+    storage.googleapis.com,\
+    fonts.gstatic.com,\
+    fonts.googleapis.com
 ```
 
-You can cut down on Internet sides and only use the ones
-needed.
+Add whatever target sites your automation hits (e.g. `southwest.com`,
+`google.com`, `flights.google.com`). Or use `--allow-all` while iterating.
 
-## Run subsequent
+Inside the sandbox:
+
 ```bash
-sbx run copilot-travel-hacking-toolkit
+# quick smoke test
+node -e "(async()=>{const{chromium}=require('playwright');\
+const b=await chromium.launch();const p=await b.newPage();\
+await p.goto('https://example.com');console.log(await p.title());\
+await b.close();})()"
+
+# headed mode (Patchright / undetected)
+xvfb-run-here python3 -c "from patchright.sync_api import sync_playwright; \
+import sys; \
+p=sync_playwright().start(); b=p.chromium.launch(headless=False); \
+pg=b.new_page(); pg.goto('https://example.com'); print(pg.title()); b.close()"
 ```
+
 ## Switching agent variants
 
 Edit the first line of `Dockerfile`:
@@ -66,7 +87,6 @@ Then rebuild and pass the matching `--agent <variant>` to `sbx run`.
   subsequent runs are fast.
 - If you change the Dockerfile, bump the tag (`:v2`, `:2025-04-29`, …) so
   `sbx` re-pulls — `:latest` won't auto-refresh once cached.
-- On ARM64 (Apple Silicon, Graviton), Chrome for Testing isn't available so
-  `agent-browser install` fails. The Dockerfile works around this by symlinking
-  Playwright's Chromium into `~/.agent-browser/browsers/chrome`. On amd64 the
-  native install succeeds and the symlink is a harmless no-op.
+- `agent-browser install` is run with `|| true` because some sub-installers
+  expect interactive prompts; re-run it inside the sandbox if you hit a
+  missing-component error.
