@@ -366,6 +366,25 @@ travel-hacking-toolkit/
 └── LICENSE                         # MIT
 ```
 
+## Smoke Testing
+
+After any change to skills, CLAUDE.md, or MCP config, run the three-way smoke test:
+
+```bash
+bash scripts/smoke-test.sh           # full test (static + all 3 agents, ~3-5 min)
+bash scripts/smoke-test.sh --quick   # static checks only (no agent invocations)
+bash scripts/smoke-test.sh --agents  # agent invocations only
+```
+
+What it verifies:
+1. `setup.sh` and `setup.ps1` syntax parse cleanly
+2. Every skill has valid `name` and `description` frontmatter
+3. CLAUDE.md is under Claude Code's 40k char warning threshold
+4. Each agent (codex, claude, opencode) starts cleanly from the toolkit
+5. Each agent picks the right skills (`lessons-learned` + `flight-search-strategy` minimum) for a real travel question
+
+Missing CLIs are skipped, not failed. Run from the repo root.
+
 ## Credits
 
 - [ajimix/travel-hacking-toolkit](https://github.com/ajimix/travel-hacking-toolkit) — Fork that contributed the google-flights skill, ignav skill, market selection strategy, and markdown table output formatting

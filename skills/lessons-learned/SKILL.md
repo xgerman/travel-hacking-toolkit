@@ -1,6 +1,6 @@
 ---
 name: lessons-learned
-description: Hard-won knowledge from real travel-hacking searches. Captures specific failure modes, source-accuracy rankings, Southwest and Companion Pass nuances, small-market caveats, Duffel limitations, and the mandatory Seats.aero workflow that prevents the most common mistake (filtering too early). Load before any award flight search to avoid repeating documented mistakes, when results seem off, or when working with sources that have known quirks. Triggers on "Seats.aero workflow", "search all sources", "Southwest is special", "Companion Pass math", "small market", "Duffel limits", "Kiwi garbage", "Skiplagged blocked", "data files vs reality", "lessons learned", or any moment that calls for institutional knowledge.
+description: REQUIRED before any award flight search. Contains the mandatory Seats.aero workflow (pull ALL programs first, never filter by source upfront) plus the documented source-accuracy hierarchy, Southwest specifics, Companion Pass math, small-market caveats, and Duffel limitations. Skipping this skill is the most common cause of bad recommendations because it lets the agent prematurely narrow the search and miss the best option. Load this BEFORE any flight search, trip planning, award comparison, or points/cash decision. Triggers on "flight search", "trip planning", "award flight", "Seats.aero", "Southwest", "Companion Pass", "small market", "Duffel limits", "data files vs reality", "lessons learned", or any travel-hacking task that involves searching for or comparing flights.
 ---
 
 # Lessons Learned

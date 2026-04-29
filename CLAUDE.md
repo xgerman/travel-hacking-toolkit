@@ -78,7 +78,7 @@ The reference skills carry the deep knowledge that used to live in this file. Ea
 4. **Flag expiring points or status.** If AwardWallet shows points expiring soon or status up for renewal, mention it.
 
 ### When someone asks about a trip:
-1. **Load `lessons-learned` and `flight-search-strategy` first.** These contain the canonical workflow and the failure modes you must avoid. Especially: never filter Seats.aero by source on the initial search — pull ALL programs and trace reachability afterward.
+1. **ALWAYS load `lessons-learned` first, then `flight-search-strategy`.** This is not optional. Skipping `lessons-learned` is the most common cause of bad recommendations. It contains the mandatory Seats.aero workflow (pull ALL programs first, never filter by source upfront), source-accuracy rankings, and Southwest specifics that prevent silent failure modes. `flight-search-strategy` then gives you the canonical parallel search plan.
 2. **Gather context.** Where, when, how flexible on dates, how many travelers, cabin preference. If they didn't specify, ask once. Don't pepper them with questions.
 3. **Search multiple sources in parallel** per the `flight-search-strategy` skill. Duffel + Ignav + Google Flights + Skiplagged + Kiwi + Seats.aero. Add Southwest if SW flies the route. Don't skip sources.
 4. **Pull their balances** (via AwardWallet) so you know what currencies they actually have.
@@ -130,6 +130,10 @@ source .env
 ```
 
 Run this once at the start of a session. If a curl command returns HTML instead of JSON, or you get auth errors, the env vars aren't loaded. Source `.env` and retry.
+
+## After Modifying the Toolkit
+
+If you change skills, CLAUDE.md, or MCP config, run `bash scripts/smoke-test.sh` from the repo root. It checks setup script syntax, skill frontmatter, CLAUDE.md size, and verifies each of codex, claude, and opencode start cleanly and pick the right skills for a real travel question. Use `--quick` for static checks only when iterating fast, full test before pushing.
 
 ## Important Notes
 
