@@ -50,6 +50,7 @@ python3 scripts/search_fares.py --origin SJC --dest DEN --depart 2026-05-15 --po
 ```
 
 **Key implementation details learned the hard way:**
+- Use `wait_until="domcontentloaded"` for ALL SW page navigations. `networkidle` NEVER fires — SW streams analytics requests indefinitely — and always times out.
 - Navigate to southwest.com homepage FIRST, then to the results URL. Direct URL without homepage warmup gets blocked.
 - Use `fareType=POINTS` URL parameter for points pricing. Don't try to click the Points toggle on the page.
 - Use a fresh persistent browser context (temp dir) each run to avoid fingerprint accumulation.
@@ -138,6 +139,8 @@ The script handles everything: homepage warmup, cookie dismissal, result extract
 6. Parses flight blocks by splitting on `# \d+` patterns
 7. Cleans up the browser and temp profile
 
+**Why `domcontentloaded` not `networkidle`:** SW's React app streams analytics and tracking requests indefinitely. `networkidle` never fires and always times out (30-45s). Using `domcontentloaded` lets the page load instantly, then the fixed 15-second wait gives the React app time to render flight cards. This applies to both the homepage warmup and the results page navigation.
+
 **Why fareType in the URL instead of clicking the Points toggle:** The Points label on the results page is in a different frame context than the flight cards. Clicking it via Playwright is unreliable. Using the URL parameter loads points results directly. Two page loads (cash + points) is more reliable than one load + a toggle click.
 
 **Why [role='main'] not main:** SW has two content areas. The `<main>` HTML element contains the booking form. The `[role='main']` ARIA attribute marks the flight results. Using the wrong one returns zero flights.
@@ -171,8 +174,9 @@ The script handles everything: homepage warmup, cookie dismissal, result extract
 
 - **"No flights found"**: SW may have flagged the IP from too many automated requests. Wait a few minutes and try again, or try Docker (different network stack).
 - **Chrome window pops up**: Expected in local mode. Use Docker for no popup.
-- **Script hangs**: SW's page can take up to 20 seconds to render. The 15-second wait is usually enough but slow connections may need more.
+- **Script hangs / timeout**: The script uses `domcontentloaded` (not `networkidle`) because SW's page never stops making network requests. If you still see timeouts, increase `WAIT_FOR_RESULTS` or check network connectivity.
 - **"Oops" error page**: Retry after a short wait. SW's site can be flaky.
+- **On headless Linux (Docker Sandbox, CI)**: Use `xvfb-run-here` (or `Xvfb :99 &; export DISPLAY=:99`) to provide a virtual display. Patchright requires `headless=False` for SW, which needs an X display even on servers.
 
 ## Limitations
 

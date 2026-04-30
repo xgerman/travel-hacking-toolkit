@@ -103,7 +103,8 @@ def parse_flight_block(text):
 def fetch_flights(page, origin, dest, depart, return_date=None, fare_type="USD"):
     """Navigate to SW results and extract flight data."""
     url = build_url(origin, dest, depart, return_date, fare_type)
-    page.goto(url, wait_until="networkidle", timeout=30000)
+    # domcontentloaded — SW's React app streams data indefinitely; networkidle never fires.
+    page.goto(url, wait_until="domcontentloaded", timeout=30000)
     page.wait_for_timeout(WAIT_FOR_RESULTS * 1000)
 
     # Dismiss cookie banner
@@ -147,9 +148,10 @@ def search(origin, dest, depart, return_date=None, show_points=False, as_json=Fa
             )
             page = browser.new_page()
 
-            # Visit homepage first to establish a normal browsing session
-            page.goto(HOMEPAGE, wait_until="networkidle", timeout=30000)
-            page.wait_for_timeout(2000)
+            # Visit homepage first to establish a normal browsing session.
+            # Use domcontentloaded — SW's page never reaches networkidle.
+            page.goto(HOMEPAGE, wait_until="domcontentloaded", timeout=30000)
+            page.wait_for_timeout(5000)
 
             # Fetch cash fares
             cash_flights = fetch_flights(page, origin, dest, depart, return_date, "USD")
