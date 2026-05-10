@@ -5,26 +5,72 @@
     "staleness_days": 60,
     "notes": "Turkish Miles&Smiles devalued Feb 15, 2025 (connections now priced separately). Emirates new partner chart March 4, 2026 (rates dropped up to 76%). Sweet spots change with program devaluations. Re-verify chart rates before recommending."
   },
-
   "booking_windows": {
     "_description": "How far in advance airlines release award space. Critical for planning.",
     "general_rule": "Most airlines release award space 330-355 days before departure.",
     "by_airline": {
-      "ANA": {"days": 355, "notes": "Releases First and Business 355 days out. Book immediately for F seats (only 8 per plane)."},
-      "United": {"days": 337, "notes": "Saver space is released sporadically. More space opens close to departure if flights aren't full."},
-      "Lufthansa": {"days": 360, "notes": "First class released to partners only 14-30 days before departure. Plan accordingly for LH First via Aeroplan."},
-      "Singapore Airlines": {"days": 355, "notes": "Suites and First released to partners closer to departure. SQ members get first priority."},
-      "Air France/KLM": {"days": 360, "notes": "Flying Blue releases promo awards monthly. Standard availability opens ~360 days."},
-      "Cathay Pacific": {"days": 360, "notes": "Business and First space is very limited. Check frequently for last-minute releases."},
-      "Emirates": {"days": 330, "notes": "Award space is generous on less popular routes. A380 routes have more availability."},
-      "Qatar Airways": {"days": 361, "notes": "Qsuites saver space is rare. Check frequently. More availability on newer routes."},
-      "British Airways": {"days": 355, "notes": "Avios availability opens ~355 days. Club World space tight on popular routes."},
-      "Japan Airlines": {"days": 330, "notes": "Partner availability released ~330 days. Find on ba.com or qantas.com, book via phone."},
-      "Delta": {"days": 331, "notes": "No published saver chart. Space appears and disappears unpredictably. Check often."},
-      "American Airlines": {"days": 331, "notes": "Web specials can appear anytime. Partner availability varies by partner program used."}
+      "ANA": {
+        "days": 355,
+        "notes": "Releases First and Business 355 days out. Book immediately for F seats (only 8 per plane)."
+      },
+      "United": {
+        "days": 337,
+        "notes": "Saver space is released sporadically. More space opens close to departure if flights aren't full."
+      },
+      "Lufthansa": {
+        "days": 360,
+        "notes": "First class released to partners only 14-30 days before departure. Plan accordingly for LH First via Aeroplan."
+      },
+      "Singapore Airlines": {
+        "days": 355,
+        "notes": "Suites and First released to partners closer to departure. SQ members get first priority."
+      },
+      "Air France/KLM": {
+        "days": 360,
+        "notes": "Flying Blue releases promo awards monthly. Standard availability opens ~360 days."
+      },
+      "Cathay Pacific": {
+        "days": 360,
+        "notes": "Business and First space is very limited. Check frequently for last-minute releases."
+      },
+      "Emirates": {
+        "days": 330,
+        "notes": "Award space is generous on less popular routes. A380 routes have more availability."
+      },
+      "Qatar Airways": {
+        "days": 361,
+        "notes": "Qsuites saver space is rare. Check frequently. More availability on newer routes."
+      },
+      "British Airways": {
+        "days": 355,
+        "notes": "Avios availability opens ~355 days. Club World space tight on popular routes."
+      },
+      "Japan Airlines": {
+        "days": 330,
+        "notes": "Partner availability released ~330 days. Find on ba.com or qantas.com, book via phone."
+      },
+      "Delta": {
+        "days": 331,
+        "notes": "No published saver chart. Space appears and disappears unpredictably. Check often."
+      },
+      "American Airlines": {
+        "days": 331,
+        "notes": "Web specials can appear anytime. Partner availability varies by partner program used."
+      },
+      "Air New Zealand": {
+        "days": 355,
+        "notes": "Business class space is extremely rare in advance. Best availability opens <30 days before departure. Even close-in, peak season (Dec-Feb NZ summer) is tough."
+      },
+      "Qantas": {
+        "days": 353,
+        "notes": "Releases partner space 353 days out. Jetstar (Qantas LCC) also bookable with Qantas points."
+      },
+      "Fiji Airways": {
+        "days": 330,
+        "notes": "Limited flights, especially HNL-Kiritimati (once/week). Book early."
+      }
     }
   },
-
   "flights": [
     {
       "name": "ANA First Class via Virgin Atlantic",
@@ -34,22 +80,46 @@
       "alliance": "star_alliance",
       "cabin": "first",
       "routes": {
-        "hawaii_to_japan": {"miles": 57500, "direction": "one-way"},
-        "us_west_to_japan": {"miles": 72500, "direction": "one-way"},
-        "us_east_to_japan": {"miles": 85000, "direction": "one-way"},
-        "europe_to_japan": {"miles": 72500, "direction": "one-way"}
+        "hawaii_to_japan": {
+          "miles": 57500,
+          "direction": "one-way"
+        },
+        "us_west_to_japan": {
+          "miles": 72500,
+          "direction": "one-way"
+        },
+        "us_east_to_japan": {
+          "miles": 85000,
+          "direction": "one-way"
+        },
+        "europe_to_japan": {
+          "miles": 72500,
+          "direction": "one-way"
+        }
       },
       "surcharges": "mild",
       "surcharge_estimate": "$150-$250 depending on route",
       "why": "ANA The Suite is arguably the best first class product flying. 8 seats in a 1-2-1 config. Krug champagne, multi-course Japanese cuisine, enormous bed. At these mileage rates, it's one of the highest cpp redemptions available.",
-      "transfer_partners": ["Amex MR", "Bilt", "Chase UR", "Citi TY", "Wells Fargo", "Marriott Bonvoy"],
+      "transfer_partners": [
+        "Amex MR",
+        "Bilt",
+        "Chase UR",
+        "Citi TY",
+        "Wells Fargo",
+        "Marriott Bonvoy"
+      ],
       "capital_one_note": "Capital One transfers to Virgin Red, then 1:1 to Virgin Atlantic Flying Club",
       "booking": {
         "search_availability": "united.com (look for saver award space on ANA)",
         "book_via": "Call Virgin Atlantic at 1-800-365-9500",
         "online_booking": false,
         "hold_policy": "Get hold from VA first, then transfer points. 48 hours to complete transfer.",
-        "tips": ["Only works for flights to/from Japan, not connections beyond", "ANA releases F space ~355 days out", "2 F seats available on same flight is rare, book as soon as released", "Round-trip is exactly 2x one-way cost"]
+        "tips": [
+          "Only works for flights to/from Japan, not connections beyond",
+          "ANA releases F space ~355 days out",
+          "2 F seats available on same flight is rare, book as soon as released",
+          "Round-trip is exactly 2x one-way cost"
+        ]
       }
     },
     {
@@ -60,15 +130,34 @@
       "alliance": "star_alliance",
       "cabin": "business",
       "routes": {
-        "hawaii_to_japan": {"miles": 37500, "direction": "one-way"},
-        "us_west_to_japan": {"miles": 52500, "direction": "one-way"},
-        "us_east_to_japan": {"miles": 60000, "direction": "one-way"},
-        "europe_to_japan": {"miles": 52500, "direction": "one-way"}
+        "hawaii_to_japan": {
+          "miles": 37500,
+          "direction": "one-way"
+        },
+        "us_west_to_japan": {
+          "miles": 52500,
+          "direction": "one-way"
+        },
+        "us_east_to_japan": {
+          "miles": 60000,
+          "direction": "one-way"
+        },
+        "europe_to_japan": {
+          "miles": 52500,
+          "direction": "one-way"
+        }
       },
       "surcharges": "mild",
       "surcharge_estimate": "$150-$250 depending on route",
       "why": "ANA THE Room business class is a door-equipped suite with a full flat bed. Top 3 business class product in the world. These rates are cheaper than booking through almost any other program.",
-      "transfer_partners": ["Amex MR", "Bilt", "Chase UR", "Citi TY", "Wells Fargo", "Marriott Bonvoy"],
+      "transfer_partners": [
+        "Amex MR",
+        "Bilt",
+        "Chase UR",
+        "Citi TY",
+        "Wells Fargo",
+        "Marriott Bonvoy"
+      ],
       "booking": {
         "search_availability": "united.com",
         "book_via": "Call Virgin Atlantic at 1-800-365-9500",
@@ -84,12 +173,24 @@
       "alliance": "star_alliance",
       "cabin": "business",
       "routes": {
-        "us_to_japan": {"miles": 88000, "direction": "round-trip"},
-        "japan_to_australia": {"miles": 72000, "direction": "round-trip"}
+        "us_to_japan": {
+          "miles": 88000,
+          "direction": "round-trip"
+        },
+        "japan_to_australia": {
+          "miles": 72000,
+          "direction": "round-trip"
+        }
       },
       "surcharges": "low",
       "why": "LifeMiles often prices Star Alliance awards cheaper than United or Aeroplan. 36K one-way ANA J vs 45K on Aeroplan. Miles are also regularly available for purchase on sale at ~1.3cpp.",
-      "transfer_partners": ["Amex MR", "Bilt", "Capital One", "Citi TY", "Marriott Bonvoy"],
+      "transfer_partners": [
+        "Amex MR",
+        "Bilt",
+        "Capital One",
+        "Citi TY",
+        "Marriott Bonvoy"
+      ],
       "booking": {
         "search_availability": "lifemiles.com or united.com",
         "book_via": "lifemiles.com",
@@ -104,18 +205,39 @@
       "alliance": "oneworld",
       "cabin": "business",
       "routes": {
-        "us_east_to_madrid_offpeak": {"miles": 40500, "direction": "one-way"},
-        "us_east_to_madrid_peak": {"miles": 59000, "direction": "one-way"}
+        "us_east_to_madrid_offpeak": {
+          "miles": 40500,
+          "direction": "one-way"
+        },
+        "us_east_to_madrid_peak": {
+          "miles": 59000,
+          "direction": "one-way"
+        }
       },
       "surcharges": "moderate",
       "why": "One of the cheapest ways to fly business class to Europe. Iberia uses distance-based Avios pricing, and nonstop flights under 4,000 miles from the US East Coast hit the sweet spot. Iberia A350 business class has excellent suites.",
-      "eligible_routes": ["BOS-MAD", "JFK-MAD", "MIA-MAD", "ORD-MAD"],
-      "transfer_partners": ["Amex MR", "Bilt", "Capital One", "Chase UR", "Citi TY"],
+      "eligible_routes": [
+        "BOS-MAD",
+        "JFK-MAD",
+        "MIA-MAD",
+        "ORD-MAD"
+      ],
+      "transfer_partners": [
+        "Amex MR",
+        "Bilt",
+        "Capital One",
+        "Chase UR",
+        "Citi TY"
+      ],
       "booking": {
         "search_availability": "iberia.com",
         "book_via": "iberia.com",
         "online_booking": true,
-        "tips": ["Avios are shared across BA, Iberia, Qatar, Finnair, Aer Lingus", "Off-peak dates are significantly cheaper", "Transfer from any Avios-earning program"]
+        "tips": [
+          "Avios are shared across BA, Iberia, Qatar, Finnair, Aer Lingus",
+          "Off-peak dates are significantly cheaper",
+          "Transfer from any Avios-earning program"
+        ]
       }
     },
     {
@@ -126,17 +248,33 @@
       "alliance": "oneworld",
       "cabin": "business",
       "routes": {
-        "us_to_qatar_saver": {"miles": 70000, "direction": "one-way"},
-        "us_to_qatar_flexible": {"miles": 140000, "direction": "one-way"}
+        "us_to_qatar_saver": {
+          "miles": 70000,
+          "direction": "one-way"
+        },
+        "us_to_qatar_flexible": {
+          "miles": 140000,
+          "direction": "one-way"
+        }
       },
       "surcharges": "low",
       "why": "Qatar Qsuites is consistently rated the best business class in the world. Saver awards at 70K Avios for ultra-long-haul flights (15+ hours from the West Coast) is exceptional per-hour value. The quad suite configuration is unique in the industry.",
-      "transfer_partners": ["Amex MR", "Bilt", "Capital One", "Chase UR", "Citi TY"],
+      "transfer_partners": [
+        "Amex MR",
+        "Bilt",
+        "Capital One",
+        "Chase UR",
+        "Citi TY"
+      ],
       "booking": {
         "search_availability": "qatarairways.com",
         "book_via": "qatarairways.com",
         "online_booking": true,
-        "tips": ["Saver space can be hard to find, especially for 2+ seats", "Qatar also bookable via AA AAdvantage for oneworld", "Use Seats.aero to find saver availability"]
+        "tips": [
+          "Saver space can be hard to find, especially for 2+ seats",
+          "Qatar also bookable via AA AAdvantage for oneworld",
+          "Use Seats.aero to find saver availability"
+        ]
       }
     },
     {
@@ -147,20 +285,38 @@
       "alliance": "star_alliance",
       "cabin": "business",
       "routes": {
-        "us_to_turkey_promotional": {"miles": 65000, "direction": "one-way"},
-        "us_to_europe_zone1": {"miles": 85000, "direction": "one-way"},
-        "us_to_europe_zone2": {"miles": 90000, "direction": "one-way"}
+        "us_to_turkey_promotional": {
+          "miles": 65000,
+          "direction": "one-way"
+        },
+        "us_to_europe_zone1": {
+          "miles": 85000,
+          "direction": "one-way"
+        },
+        "us_to_europe_zone2": {
+          "miles": 90000,
+          "direction": "one-way"
+        }
       },
       "surcharges": "varies",
       "surcharge_warning": "Some routes now have high YQ surcharges ($200-$1000+). Check before booking.",
       "why": "Still decent for direct flights to Turkey. DEVALUED Feb 15, 2025. Previously the best deal to Europe (45K with free connections). Now connections priced separately, making Europe significantly more expensive.",
       "devaluation_date": "2025-02-15",
-      "transfer_partners": ["Bilt", "Capital One", "Citi TY", "Marriott Bonvoy"],
+      "transfer_partners": [
+        "Bilt",
+        "Capital One",
+        "Citi TY",
+        "Marriott Bonvoy"
+      ],
       "booking": {
         "search_availability": "turkishairlines.com or united.com (for partner awards)",
         "book_via": "turkishairlines.com or call 1-800-874-8875",
         "online_booking": true,
-        "tips": ["Post-devaluation, Avianca LifeMiles may be cheaper for the same Star Alliance flights", "Look for X (economy saver) or I (business saver) fare codes on United", "Turkish domestic flights still excellent at 10K-15K"]
+        "tips": [
+          "Post-devaluation, Avianca LifeMiles may be cheaper for the same Star Alliance flights",
+          "Look for X (economy saver) or I (business saver) fare codes on United",
+          "Turkish domestic flights still excellent at 10K-15K"
+        ]
       }
     },
     {
@@ -171,16 +327,30 @@
       "alliance": "star_alliance",
       "cabin": "business",
       "routes": {
-        "us_transcon_business": {"miles": 22500, "direction": "one-way"},
-        "us_transcon_economy": {"miles": 15000, "direction": "one-way"}
+        "us_transcon_business": {
+          "miles": 22500,
+          "direction": "one-way"
+        },
+        "us_transcon_economy": {
+          "miles": 15000,
+          "direction": "one-way"
+        }
       },
       "why": "20% cheaper than booking through United directly (25K). United Polaris on transcon routes (JFK-SFO, JFK-LAX, EWR-SFO) in a lie-flat seat for 22.5K. The challenge is finding saver availability.",
-      "transfer_partners": ["Bilt", "Capital One", "Citi TY"],
+      "transfer_partners": [
+        "Bilt",
+        "Capital One",
+        "Citi TY"
+      ],
       "booking": {
         "search_availability": "united.com (look for saver 'I' class in business)",
         "book_via": "turkishairlines.com",
         "online_booking": true,
-        "tips": ["United is extremely stingy with saver Polaris space on transcon routes", "Keep dates flexible", "Book as soon as saver space appears"]
+        "tips": [
+          "United is extremely stingy with saver Polaris space on transcon routes",
+          "Keep dates flexible",
+          "Book as soon as saver space appears"
+        ]
       }
     },
     {
@@ -191,17 +361,30 @@
       "alliance": "skyteam",
       "cabin": "business",
       "routes": {
-        "us_to_europe_roundtrip_business": {"miles": 80000, "direction": "round-trip"},
-        "us_to_europe_roundtrip_economy": {"miles": 50000, "direction": "round-trip"}
+        "us_to_europe_roundtrip_business": {
+          "miles": 80000,
+          "direction": "round-trip"
+        },
+        "us_to_europe_roundtrip_economy": {
+          "miles": 50000,
+          "direction": "round-trip"
+        }
       },
       "why": "One of the few programs still offering fixed round-trip awards at these rates. 80K round-trip in business is excellent. Allows a stopover AND open jaw, which can turn one trip into two destinations.",
-      "transfer_partners": ["Chase UR", "Citi TY"],
+      "transfer_partners": [
+        "Chase UR",
+        "Citi TY"
+      ],
       "booking": {
         "search_availability": "koreanair.com",
         "book_via": "Call 1-800-438-5000",
         "online_booking": false,
         "hold_policy": "Can put tickets on hold before transferring miles.",
-        "tips": ["Partner awards MUST be booked round-trip", "Can only book for self or registered family members", "Stopover + open jaw makes this incredibly flexible"]
+        "tips": [
+          "Partner awards MUST be booked round-trip",
+          "Can only book for self or registered family members",
+          "Stopover + open jaw makes this incredibly flexible"
+        ]
       }
     },
     {
@@ -212,12 +395,25 @@
       "alliance": "skyteam",
       "cabin": "economy",
       "routes": {
-        "us_east_to_london": {"miles": 6000, "direction": "one-way"},
-        "us_west_to_london": {"miles": 9000, "direction": "one-way"}
+        "us_east_to_london": {
+          "miles": 6000,
+          "direction": "one-way"
+        },
+        "us_west_to_london": {
+          "miles": 9000,
+          "direction": "one-way"
+        }
       },
       "surcharges": "moderate",
       "why": "Transatlantic flights for the cost of a domestic award. 6K miles from the East Coast is absurd value. Even with surcharges, total cost is far below cash prices.",
-      "transfer_partners": ["Amex MR", "Bilt", "Chase UR", "Citi TY", "Capital One", "Wells Fargo"],
+      "transfer_partners": [
+        "Amex MR",
+        "Bilt",
+        "Chase UR",
+        "Citi TY",
+        "Capital One",
+        "Wells Fargo"
+      ],
       "booking": {
         "search_availability": "virginatlantic.com",
         "book_via": "virginatlantic.com",
@@ -232,17 +428,34 @@
       "alliance": "skyteam",
       "cabin": "business",
       "routes": {
-        "us_to_europe_business": {"miles": 60000, "direction": "one-way", "note": "standard; promos can be lower"},
-        "us_to_europe_economy": {"miles": 25000, "direction": "one-way"}
+        "us_to_europe_business": {
+          "miles": 60000,
+          "direction": "one-way",
+          "note": "standard; promos can be lower"
+        },
+        "us_to_europe_economy": {
+          "miles": 25000,
+          "direction": "one-way"
+        }
       },
       "surcharges": "moderate",
       "why": "Flying Blue runs monthly promo awards with discounted mileage rates. The real gem: FREE stopovers on one-way awards, even on partner airlines. No other program does this.",
-      "transfer_partners": ["Amex MR", "Bilt", "Capital One", "Chase UR", "Citi TY"],
+      "transfer_partners": [
+        "Amex MR",
+        "Bilt",
+        "Capital One",
+        "Chase UR",
+        "Citi TY"
+      ],
       "booking": {
         "search_availability": "airfrance.com or klm.com",
         "book_via": "airfrance.com (online) or call 1-800-237-2747 (for stopover awards)",
         "online_booking": true,
-        "tips": ["Check Flying Blue monthly promo awards page", "Stopovers must be booked by phone", "Can mix Air France + KLM + partner flights"]
+        "tips": [
+          "Check Flying Blue monthly promo awards page",
+          "Stopovers must be booked by phone",
+          "Can mix Air France + KLM + partner flights"
+        ]
       }
     },
     {
@@ -253,16 +466,34 @@
       "alliance": "star_alliance",
       "cabin": "business",
       "routes": {
-        "us_northeast_to_europe": {"miles": 60000, "direction": "one-way", "note": "starting rate, dynamic pricing applies"},
-        "us_to_europe": {"miles": 70000, "direction": "one-way", "note": "typical rate"}
+        "us_northeast_to_europe": {
+          "miles": 60000,
+          "direction": "one-way",
+          "note": "starting rate, dynamic pricing applies"
+        },
+        "us_to_europe": {
+          "miles": 70000,
+          "direction": "one-way",
+          "note": "typical rate"
+        }
       },
       "why": "Aeroplan has the widest Star Alliance partner availability. Can book Lufthansa First for 90-100K from East Coast. Also great for mixed-partner itineraries. Low-cost short hauls (United under 500 miles for 6K).",
-      "transfer_partners": ["Amex MR", "Bilt", "Capital One", "Chase UR", "Citi TY"],
+      "transfer_partners": [
+        "Amex MR",
+        "Bilt",
+        "Capital One",
+        "Chase UR",
+        "Citi TY"
+      ],
       "booking": {
         "search_availability": "aircanada.com/aeroplan",
         "book_via": "aircanada.com or call 1-888-247-2262",
         "online_booking": true,
-        "tips": ["Punitive cancel fees per person", "Sometimes blocks partner availability when Air Canada alternative exists", "Lufthansa First released close to departure"]
+        "tips": [
+          "Punitive cancel fees per person",
+          "Sometimes blocks partner availability when Air Canada alternative exists",
+          "Lufthansa First released close to departure"
+        ]
       }
     },
     {
@@ -273,10 +504,18 @@
       "alliance": "none",
       "cabin": "business",
       "routes": {
-        "us_to_europe_via_dxb": {"miles": 72500, "direction": "one-way"}
+        "us_to_europe_via_dxb": {
+          "miles": 72500,
+          "direction": "one-way"
+        }
       },
       "why": "The Emirates A380 business class experience. Onboard bar, lie-flat seats, shower in First. Good value when saver space is available. Transfer from multiple programs.",
-      "transfer_partners": ["Amex MR", "Capital One", "Citi TY", "Marriott Bonvoy"],
+      "transfer_partners": [
+        "Amex MR",
+        "Capital One",
+        "Citi TY",
+        "Marriott Bonvoy"
+      ],
       "booking": {
         "search_availability": "emirates.com",
         "book_via": "emirates.com",
@@ -291,22 +530,384 @@
       "alliance": "none",
       "cabin": "business",
       "routes": {
-        "short_haul_partner": {"miles": 3000, "direction": "one-way", "note": "starting rate, distance-based"},
-        "medium_haul_partner": {"miles": 15000, "direction": "one-way", "note": "approximate"},
-        "long_haul_partner": {"miles": 40000, "direction": "one-way", "note": "approximate"}
+        "short_haul_partner": {
+          "miles": 3000,
+          "direction": "one-way",
+          "note": "starting rate, distance-based"
+        },
+        "medium_haul_partner": {
+          "miles": 15000,
+          "direction": "one-way",
+          "note": "approximate"
+        },
+        "long_haul_partner": {
+          "miles": 40000,
+          "direction": "one-way",
+          "note": "approximate"
+        }
       },
       "chart_change_date": "2026-03-04",
       "why": "Emirates released a new distance-based partner chart on March 4, 2026. Rates dropped up to 76% vs the old chart. Short-haul flights starting at just 3,000 miles. Excellent for booking Japan Airlines, Korean Air, and Qantas at lower rates than their own programs charge. Separate Qantas chart. JAL, Air Canada, and Jetstar still on the old chart (being updated).",
-      "transfer_partners": ["Amex MR (1:0.8)", "Bilt (1:1)", "Capital One (4:3)", "Citi TY (5:4)"],
+      "transfer_partners": [
+        "Amex MR (1:0.8)",
+        "Bilt (1:1)",
+        "Capital One (4:3)",
+        "Citi TY (5:4)"
+      ],
       "booking": {
         "search_availability": "emirates.com",
         "book_via": "emirates.com",
         "online_booking": true,
-        "tips": ["New chart applies to most partners but JAL, Air Canada, Jetstar are still on old chart", "Separate chart for Qantas", "Distance-based so short-haul flights are the sweet spot", "Bilt transfers at 1:1 making it the best currency for Skywards"]
+        "tips": [
+          "New chart applies to most partners but JAL, Air Canada, Jetstar are still on old chart",
+          "Separate chart for Qantas",
+          "Distance-based so short-haul flights are the sweet spot",
+          "Bilt transfers at 1:1 making it the best currency for Skywards"
+        ]
+      }
+    },
+    {
+      "name": "Air New Zealand Business via Virgin Atlantic",
+      "tier": "excellent",
+      "program": "Virgin Atlantic Flying Club",
+      "airline": "Air New Zealand",
+      "alliance": "star_alliance",
+      "cabin": "business",
+      "routes": {
+        "hawaii_to_auckland": {
+          "miles": 45000,
+          "direction": "one-way"
+        },
+        "us_to_new_zealand": {
+          "miles": 62500,
+          "direction": "one-way"
+        }
+      },
+      "surcharges": "none",
+      "surcharge_estimate": "Minimal taxes only",
+      "why": "Air New Zealand Business Premier is a top-tier product. 62.5K via Virgin Atlantic is dramatically cheaper than 110K via United MileagePlus for the same flight. Availability is very rare in advance but opens up <30 days before departure.",
+      "transfer_partners": [
+        "Amex MR",
+        "Bilt",
+        "Chase UR",
+        "Citi TY",
+        "Capital One (via Virgin Red)",
+        "Wells Fargo"
+      ],
+      "booking": {
+        "search_availability": "united.com (look for Air New Zealand saver space; do NOT log in to avoid seeing expanded availability unavailable to partners)",
+        "book_via": "Call Virgin Atlantic at 1-800-365-9500",
+        "online_booking": false,
+        "hold_policy": "Get hold from VA first, then transfer points.",
+        "tips": [
+          "Air NZ business class award space is extremely rare in advance",
+          "Best availability opens <30 days before departure",
+          "Even close-in, peak season (Dec-Feb) is tough",
+          "VA charges per segment, so connecting itineraries get expensive fast",
+          "Flights United sells for 110K should be bookable via VA for 62.5K"
+        ]
+      }
+    },
+    {
+      "name": "ANA Mileage Club Business to Oceania",
+      "tier": "excellent",
+      "program": "ANA Mileage Club",
+      "airline": "Star Alliance carriers",
+      "alliance": "star_alliance",
+      "cabin": "business",
+      "routes": {
+        "us_to_oceania_low_season_ana_metal": {
+          "miles": 65000,
+          "direction": "one-way",
+          "note": "ANA metal only, low season"
+        },
+        "us_to_oceania_star_alliance_partners": {
+          "miles": 72500,
+          "direction": "one-way",
+          "note": "Star Alliance partners (Air NZ, United, etc.)"
+        }
+      },
+      "surcharges": "varies",
+      "surcharge_estimate": "$0 on United/Air Canada/Air NZ; $150-250 on ANA metal; higher on others",
+      "why": "Wide range of Star Alliance routings to Australia/NZ: via Japan on ANA, via Canada on Air Canada, via US on United, or direct on Air New Zealand. Low/regular season pricing only applies to itineraries entirely on ANA metal; Star Alliance awards always price at high-season rates. No fuel surcharges on United, Air Canada, Air NZ, Avianca, Copa, Air China, Etihad.",
+      "transfer_partners": [
+        "Amex MR"
+      ],
+      "amex_only_note": "ANA Mileage Club is only accessible via Amex MR (1:1) or Marriott Bonvoy (60K:25K). This is the main limitation.",
+      "booking": {
+        "search_availability": "united.com (do NOT log in) or ana.co.jp",
+        "book_via": "ana.co.jp (online)",
+        "online_booking": true,
+        "tips": [
+          "Low and regular season pricing ONLY applies to 100% ANA metal itineraries",
+          "Star Alliance partner awards always priced at high-season rates (72.5K)",
+          "ANA website is clunky but functional",
+          "Free to change; 3,000 miles per passenger to cancel",
+          "Can route via Asia for a free stopover on round trips"
+        ]
+      }
+    },
+    {
+      "name": "Air France LAX-Tahiti Nonstop",
+      "tier": "good",
+      "program": "Air France/KLM Flying Blue",
+      "airline": "Air France",
+      "alliance": "skyteam",
+      "cabin": "economy",
+      "routes": {
+        "lax_to_tahiti_economy": {
+          "miles": 30000,
+          "direction": "one-way"
+        },
+        "lax_to_tahiti_business": {
+          "miles": 113000,
+          "direction": "one-way",
+          "note": "Variable pricing, usually not great value"
+        }
+      },
+      "surcharges": "moderate",
+      "surcharge_estimate": "$200+ each way in surcharges",
+      "why": "One of very few nonstop options from the US to Tahiti. Economy at 30K is reasonable. Business at 113K is usually poor value given surcharges. Hit a transfer bonus to maximize value. The real play is economy: 30K one-way to French Polynesia is solid. Connecting on Delta to/from LAX can inflate the price substantially \u2014 book a separate positioning flight.",
+      "transfer_partners": [
+        "Amex MR",
+        "Bilt",
+        "Capital One",
+        "Chase UR",
+        "Citi TY",
+        "Wells Fargo"
+      ],
+      "booking": {
+        "search_availability": "airfrance.us",
+        "book_via": "airfrance.us (online) or phone when website errors occur",
+        "online_booking": true,
+        "tips": [
+          "Air France website is notoriously buggy \u2014 call if it errors out",
+          "Don't connect on Delta to LAX; book separate positioning flight",
+          "Economy is the sweet spot here, not business",
+          "Watch for transfer bonuses to Flying Blue (frequent from Amex/Chase/Citi)",
+          "Good for combining points from multiple programs"
+        ]
+      }
+    },
+    {
+      "name": "Atmos Rewards (Alaska) to Oceania",
+      "tier": "good",
+      "program": "Atmos Rewards (Alaska)",
+      "airline": "Fiji Airways, Qantas, Hawaiian, Cathay Pacific",
+      "alliance": "oneworld",
+      "cabin": "economy_and_business",
+      "routes": {
+        "honolulu_to_kiritimati_economy": {
+          "miles": 7500,
+          "direction": "one-way",
+          "note": "Fiji Airways, once/week only"
+        },
+        "honolulu_to_tahiti_rarotonga_economy": {
+          "miles": 25000,
+          "direction": "one-way",
+          "note": "Hawaiian Airlines"
+        },
+        "honolulu_to_tahiti_rarotonga_business": {
+          "miles": 47500,
+          "direction": "one-way",
+          "note": "Hawaiian Airlines"
+        },
+        "us_to_australia_nz_business": {
+          "miles": 75000,
+          "direction": "one-way",
+          "note": "Starting rate, 75K-85K depending on routing"
+        }
+      },
+      "surcharges": "none",
+      "surcharge_estimate": "Minimal \u2014 $12.50 partner booking fee (waived for Summit Visa holders)",
+      "why": "Excellent for Hawaii-based connections to the South Pacific. HNL-Kiritimati on Fiji Airways for 7.5K is almost always a steal vs cash. Free stopover on one-way awards. No change/cancel fees on award tickets. Main limitation: multi-partner itineraries (outside AA/BA) can't be booked as single ticket.",
+      "transfer_partners": [
+        "Bilt (1:1)"
+      ],
+      "booking": {
+        "search_availability": "alaskaair.com",
+        "book_via": "alaskaair.com (online)",
+        "online_booking": true,
+        "tips": [
+          "Fiji Airways Kiritimati flight is once/week \u2014 limited but cheap",
+          "Free stopover on one-way awards is a huge perk",
+          "No change or cancellation fees",
+          "$12.50 partner booking fee waived for Summit Visa holders",
+          "Premium cabin availability is tough to find"
+        ]
+      }
+    },
+    {
+      "name": "Aeroplan Business to Oceania with Asia Stopover",
+      "tier": "good",
+      "program": "Air Canada Aeroplan",
+      "airline": "Star Alliance carriers",
+      "alliance": "star_alliance",
+      "cabin": "business",
+      "routes": {
+        "us_to_oceania_business": {
+          "miles": 75000,
+          "direction": "one-way",
+          "note": "Starting rate, 75K-115K depending on distance band"
+        },
+        "us_to_oceania_first": {
+          "miles": 90000,
+          "direction": "one-way",
+          "note": "Starting rate, 90K-140K depending on distance band"
+        }
+      },
+      "surcharges": "none",
+      "surcharge_estimate": "Aeroplan suppresses partner fuel surcharges",
+      "why": "The real play: add an Asia stopover for just 5K extra miles one-way. Turn a trip to Australia into an Asia+Australia trip. Lap infants just $25 CAD or 2,500 miles per direction (far cheaper than most programs). Aeroplan suppresses partner fuel surcharges. Dynamic pricing on Air Canada, Emirates, Etihad, and United awards (no maximum cap). Complex multi-stop itineraries possible via phone.",
+      "transfer_partners": [
+        "Amex MR",
+        "Bilt",
+        "Capital One",
+        "Chase UR"
+      ],
+      "booking": {
+        "search_availability": "aeroplan.com (free account required)",
+        "book_via": "aeroplan.com (online for \u22644 segments) or phone for complex routings",
+        "online_booking": true,
+        "tips": [
+          "Asia stopover for +5K miles is the killer feature for Oceania trips",
+          "Lap infants $25 CAD or 2,500 miles \u2014 cheapest of any major program",
+          "AC/Emirates/Etihad/United awards are now dynamically priced with NO cap",
+          "Changes cost $100 for 'Lowest' fare awards; free for Flex/Latitude",
+          "Cancellations $150 online ($175 phone) for standard awards"
+        ]
+      }
+    },
+    {
+      "name": "British Airways Mixed Partner Chart to Oceania",
+      "tier": "good",
+      "program": "British Airways Executive Club (Avios)",
+      "airline": "oneworld carriers (AA + Qantas, etc.)",
+      "alliance": "oneworld",
+      "cabin": "business",
+      "routes": {
+        "us_to_oceania_business_roundtrip": {
+          "miles": 200000,
+          "direction": "round-trip",
+          "note": "Approximate, varies by cumulative distance"
+        },
+        "honolulu_to_kiribati_economy": {
+          "miles": 11000,
+          "direction": "one-way",
+          "note": "Fiji Airways"
+        },
+        "kiribati_to_fiji_economy": {
+          "miles": 20000,
+          "direction": "one-way",
+          "note": "Fiji Airways onward"
+        }
+      },
+      "surcharges": "varies",
+      "surcharge_estimate": "Depends on carrier \u2014 heavy on BA/QF metal, clean on AA",
+      "why": "The lesser-known mixed partner chart prices by cumulative distance across all segments, not per segment. Turn it into a multi-stop, multi-carrier oneworld journey (up to 8 segments, 7 stopovers, 12-month completion). Less total miles than booking each segment separately. One open-jaw allowed. HNL-Kiritimati on Fiji Airways for 11K in economy is decent for island hopping.",
+      "transfer_partners": [
+        "Amex MR",
+        "Bilt",
+        "Capital One",
+        "Chase UR",
+        "Wells Fargo",
+        "Citi TY (via Qatar)"
+      ],
+      "booking": {
+        "search_availability": "britishairways.com (search each segment separately)",
+        "book_via": "Phone only for mixed partner chart",
+        "online_booking": false,
+        "tips": [
+          "This is a lesser-known chart \u2014 some phone agents don't know it",
+          "Be prepared to HUCA (hang up, call again)",
+          "Max 8 segments, 7 stopovers, one open-jaw, 12-month completion",
+          "Only oneworld partners eligible on mixed chart",
+          "Cancel fee $55 or forfeit taxes if taxes < $55"
+        ]
+      }
+    },
+    {
+      "name": "United MileagePlus Business to Oceania",
+      "tier": "good",
+      "program": "United MileagePlus",
+      "airline": "United, Star Alliance",
+      "alliance": "star_alliance",
+      "cabin": "business",
+      "routes": {
+        "us_to_oceania_united_metal": {
+          "miles": 85000,
+          "direction": "one-way",
+          "note": "Starting rate, 85K-100K on United metal"
+        },
+        "us_to_oceania_partners": {
+          "miles": 110000,
+          "direction": "one-way",
+          "note": "Star Alliance partner flights (Air NZ, ANA, etc.)"
+        },
+        "us_to_oceania_economy": {
+          "miles": 38000,
+          "direction": "one-way",
+          "note": "Starting rate for economy"
+        }
+      },
+      "surcharges": "none",
+      "surcharge_estimate": "Minimal ($5.60 on many routes)",
+      "why": "Most lenient routing rules of any program \u2014 can route via Canada, China, South Korea. United credit cardholders get 10-15% off and expanded availability. No award chart (dynamic pricing) means prices fluctuate. Best value on United metal (85-100K) vs 110K on partners. No change or cancel fees.",
+      "transfer_partners": [
+        "Bilt",
+        "Chase UR"
+      ],
+      "booking": {
+        "search_availability": "united.com",
+        "book_via": "united.com (online)",
+        "online_booking": true,
+        "tips": [
+          "No award chart \u2014 prices are dynamic and vary by date",
+          "United credit cardholders get 10-15% off award prices",
+          "Can route via Canada, China, South Korea for more availability",
+          "Partner flights (Air NZ, ANA) at 110K are often better booked via VA (62.5K) or ANA MC (72.5K)",
+          "No change or cancellation fees"
+        ]
+      }
+    },
+    {
+      "name": "Avianca LifeMiles Business to Oceania",
+      "tier": "good",
+      "program": "Avianca LifeMiles",
+      "airline": "Star Alliance carriers",
+      "alliance": "star_alliance",
+      "cabin": "business",
+      "routes": {
+        "us_to_oceania_business": {
+          "miles": 80000,
+          "direction": "one-way",
+          "note": "80K-100K depending on routing"
+        }
+      },
+      "surcharges": "none",
+      "surcharge_estimate": "Mandatory $25 booking fee (same one-way or round-trip \u2014 book RT to save)",
+      "why": "Can be a good deal if you find premium cabin space on the long-haul. Wider transfer partner access than ANA MC. But LifeMiles.com availability doesn't always match united.com \u2014 always check LifeMiles site before transferring. Phone agents generally can't see better availability than website.",
+      "transfer_partners": [
+        "Amex MR",
+        "Bilt",
+        "Capital One",
+        "Citi TY",
+        "Wells Fargo"
+      ],
+      "booking": {
+        "search_availability": "lifemiles.com (free account required)",
+        "book_via": "lifemiles.com (online) or email",
+        "online_booking": true,
+        "tips": [
+          "Always check lifemiles.com availability BEFORE transferring points",
+          "LifeMiles availability often differs from united.com",
+          "Mandatory $25 booking fee \u2014 same for OW or RT, so book RT to save",
+          "Phone agents rarely see better availability than website",
+          "$50 cancel within region, $200 between regions"
+        ]
       }
     }
   ],
-
   "hotels": [
     {
       "name": "Hyatt Category 1-4 Properties",
@@ -314,11 +915,19 @@
       "program": "World of Hyatt",
       "cost_range": "5,000-15,000 points/night",
       "why": "Hyatt consistently delivers the best hotel points value. Category 1-4 properties cost 5-15K points/night and routinely deliver 1.5-2.5cpp. No resort fees on award stays. Many all-inclusive resorts in the portfolio.",
-      "transfer_partners": ["Chase UR (1:1)", "Bilt (1:1)"],
+      "transfer_partners": [
+        "Chase UR (1:1)",
+        "Bilt (1:1)"
+      ],
       "booking": {
         "search_at": "hyatt.com",
         "book_via": "hyatt.com or Hyatt app",
-        "tips": ["Chase UR to Hyatt 1:1 is one of the best transfer values in the game", "Category changes announced in advance, book before increases", "All-inclusive Ziva/Zilara resorts are exceptional value on points", "Peak/off-peak pricing can save 20% on award stays"]
+        "tips": [
+          "Chase UR to Hyatt 1:1 is one of the best transfer values in the game",
+          "Category changes announced in advance, book before increases",
+          "All-inclusive Ziva/Zilara resorts are exceptional value on points",
+          "Peak/off-peak pricing can save 20% on award stays"
+        ]
       }
     },
     {
@@ -327,8 +936,19 @@
       "program": "World of Hyatt",
       "cost_range": "20,000-35,000 points/night",
       "why": "All-inclusive resorts where points cover EVERYTHING: room, food, drinks, activities. Cash rates are often $500-$800+/night. At 25K points, that's 2.0-3.2cpp. The best absolute value play in hotel points.",
-      "transfer_partners": ["Chase UR (1:1)", "Bilt (1:1)"],
-      "locations": ["Cancun", "Los Cabos", "Montego Bay", "Punta Cana", "Cap Cana", "Puerto Vallarta", "Turks & Caicos"],
+      "transfer_partners": [
+        "Chase UR (1:1)",
+        "Bilt (1:1)"
+      ],
+      "locations": [
+        "Cancun",
+        "Los Cabos",
+        "Montego Bay",
+        "Punta Cana",
+        "Cap Cana",
+        "Puerto Vallarta",
+        "Turks & Caicos"
+      ],
       "booking": {
         "search_at": "hyatt.com (filter by 'all-inclusive')",
         "book_via": "hyatt.com"
@@ -340,30 +960,73 @@
       "program": "IHG One Rewards",
       "cost_range": "5,000-15,000 points/night (PointBreaks even lower)",
       "why": "IHG runs periodic PointBreaks promotions with hotels for as low as 5,000 points/night. Even regular low-category hotels are cheap. IHG points are easy to earn and buy on sale.",
-      "transfer_partners": ["Chase UR (1:1)", "Bilt (1:1)"],
+      "transfer_partners": [
+        "Chase UR (1:1)",
+        "Bilt (1:1)"
+      ],
       "booking": {
         "search_at": "ihg.com",
         "book_via": "ihg.com"
       }
     }
   ],
-
   "surcharge_guide": {
     "_description": "Programs that pass through heavy fuel surcharges on award tickets, dramatically reducing value",
     "avoid_for_surcharges": [
-      {"airline": "British Airways", "note": "Worst offender. $500-$800+ in surcharges on long-haul BA metal awards."},
-      {"airline": "Lufthansa", "note": "Heavy surcharges on LH/LX/OS metal. Book via Aeroplan or United to avoid."},
-      {"airline": "SWISS", "note": "Lufthansa Group, same surcharge issues."},
-      {"airline": "Austrian Airlines", "note": "Lufthansa Group, same surcharge issues."},
-      {"airline": "Air Canada", "note": "Moderate surcharges on AC metal awards booked through some programs."},
-      {"airline": "Qantas", "note": "Moderate surcharges, especially on QF metal long-haul."}
+      {
+        "airline": "British Airways",
+        "note": "Worst offender. $500-$800+ in surcharges on long-haul BA metal awards."
+      },
+      {
+        "airline": "Lufthansa",
+        "note": "Heavy surcharges on LH/LX/OS metal. Book via Aeroplan or United to avoid."
+      },
+      {
+        "airline": "SWISS",
+        "note": "Lufthansa Group, same surcharge issues."
+      },
+      {
+        "airline": "Austrian Airlines",
+        "note": "Lufthansa Group, same surcharge issues."
+      },
+      {
+        "airline": "Air Canada",
+        "note": "Moderate surcharges on AC metal awards booked through some programs."
+      },
+      {
+        "airline": "Qantas",
+        "note": "Moderate surcharges, especially on QF metal long-haul."
+      }
     ],
     "clean_programs": [
-      {"airline": "United Airlines", "note": "Minimal surcharges ($5.60 taxes on many routes). Book UA metal when possible."},
-      {"airline": "ANA", "note": "Mild surcharges. Especially clean when booked via Virgin Atlantic or LifeMiles."},
-      {"airline": "Singapore Airlines", "note": "Low surcharges on SQ metal."},
-      {"airline": "Air Canada Aeroplan", "note": "As a booking program, Aeroplan suppresses partner surcharges on most routes."},
-      {"airline": "Turkish Airlines", "note": "Generally low, but some routes saw surcharge increases post-Feb 2025."}
+      {
+        "airline": "United Airlines",
+        "note": "Minimal surcharges ($5.60 taxes on many routes). Book UA metal when possible."
+      },
+      {
+        "airline": "ANA",
+        "note": "Mild surcharges. Especially clean when booked via Virgin Atlantic or LifeMiles."
+      },
+      {
+        "airline": "Singapore Airlines",
+        "note": "Low surcharges on SQ metal."
+      },
+      {
+        "airline": "Air Canada Aeroplan",
+        "note": "As a booking program, Aeroplan suppresses partner surcharges on most routes."
+      },
+      {
+        "airline": "Turkish Airlines",
+        "note": "Generally low, but some routes saw surcharge increases post-Feb 2025."
+      },
+      {
+        "airline": "Air New Zealand",
+        "note": "Minimal surcharges. Especially clean when booked via Virgin Atlantic."
+      },
+      {
+        "airline": "Fiji Airways",
+        "note": "Low surcharges on most routes."
+      }
     ]
   }
 }

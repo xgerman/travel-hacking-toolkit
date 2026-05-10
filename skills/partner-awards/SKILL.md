@@ -1,6 +1,6 @@
 ---
 name: partner-awards
-description: Reference for which loyalty programs can ticket which airlines, including alliance-based and bilateral partnerships. Cross-references credit card transferable currencies to booking programs. Load when verifying an award booking is bookable through a specific program, when finding cross-alliance value plays, or when calculating which currencies reach a desired airline. Triggers on "can I book X with Y miles", "partner award", "bilateral partnership", "which program books", "transfer to United", "transfer to Aeroplan", "cross-alliance", "extended partners", or any reachability question about award flights.
+description: Reference for which loyalty programs can ticket which airlines, including alliance-based and bilateral partnerships. Cross-references credit card transferable currencies to booking programs. Load when verifying an award booking is bookable through a specific program, when finding cross-alliance value plays, or when calculating which currencies reach a desired airline. Triggers on "can I book X with Y miles", "partner award", "bilateral partnership", "which program books", "transfer to United", "transfer to Aeroplan", "cross-alliance", "extended partners", "Air New Zealand", "Fiji Airways", "Qantas", "Atmos Rewards", "ANA Mileage Club", or any reachability question about award flights.
 category: reference
 summary: Which programs ticket which airlines (alliance + bilateral). Cross-references credit card currencies to booking programs. Reachability workflow.
 ---
@@ -41,3 +41,5 @@ When checking if a user can actually book an award flight:
 - Assuming an airline "can't be booked with points" because the user has zero direct balance. Always check transfer reachability first.
 - Recommending a transfer without verifying the path. Some routes that "seem like they should work" don't (e.g., Amex MR does NOT transfer to United).
 - Missing cross-alliance plays. United metal flights can be booked via Turkish M&S, Avianca LifeMiles, Aeroplan, ANA, and others, often at very different rates.
+- For Air New Zealand, the best play (VA at 62.5K) is nearly half the cost of United (110K). Always compare cross-program pricing before recommending.
+- For Oceania, ANA Mileage Club is Amex MR-only for transfers. Don't recommend it to users who only have Chase/Bilt/Citi.
