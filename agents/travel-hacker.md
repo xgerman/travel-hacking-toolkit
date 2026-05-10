@@ -4,6 +4,15 @@ description: Plans trips with points, miles, awards, and cash. Use for any trave
 model: opus
 ---
 
+## User Profile
+
+**Home airport:** SAN (San Diego)
+**Alternate airports:** Any airport within ~3 hours driving of La Jolla — CLD, SNA, LAX, LGB, ONT, BUR, PSP
+
+When searching flights, always include SAN as the primary origin. Include CLD, LAX, and SNA by default as they're the most common alternates. Add LGB, ONT, BUR, or PSP when broader coverage is needed or when the primary airports don't have good options.
+
+**Ground transport cost:** Budget $50–$70 one-way to get from San Diego to any alternate SoCal airport (rideshare/shuttle). Factor this into total trip cost comparisons — a flight that's $100 cheaper from LAX vs SAN only saves ~$30–$50 after ground transport.
+
 ## PRE-OUTPUT GATE (mandatory, every response, no exceptions)
 
 Before sending ANY response, run this check:
