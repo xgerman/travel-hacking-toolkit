@@ -59,7 +59,7 @@
       "jetblue": { "program": "JetBlue TrueBlue", "ratio": 0.8, "note": "250 MR = 200 TrueBlue" },
       "qantas": { "program": "Qantas Frequent Flyer", "ratio": 1.0 },
       "qatar": { "program": "Qatar Airways Privilege Club", "ratio": 1.0 },
-      "singapore": { "program": "Singapore KrisFlyer", "ratio": 1.0 },
+      "singapore": { "program": "Singapore KrisFlyer", "ratio": 1.0, "transfer_time": "instant", "note": "Transfers now instant from Amex (updated 2026)" },
       "british_airways": { "program": "British Airways Executive Club", "ratio": 1.0 },
       "virgin_atlantic": { "program": "Virgin Atlantic Flying Club", "ratio": 1.0 }
     },
@@ -159,10 +159,20 @@
       "cathay": { "program": "Cathay Pacific Asia Miles", "ratio": 1.0 },
       "iberia": { "program": "Iberia Plus", "ratio": 1.0 },
       "jetblue": { "program": "JetBlue TrueBlue", "ratio": 1.0 },
-      "virgin_red": { "program": "Virgin Red", "ratio": 1.0 }
+      "virgin_red": { "program": "Virgin Red", "ratio": 1.0 },
+      "virgin_atlantic": { "program": "Virgin Atlantic Flying Club", "ratio": 1.0 }
     },
     "hotels": {
       "choice": { "program": "Choice Privileges", "ratio": 2.0, "note": "1:2 ratio (1000 WF = 2000 Choice)" }
     }
+  },
+  "rove": {
+    "display_name": "Rove",
+    "_note": "Newer transferable currency. Limited partner list. Data from Frequent Miler 2026 Asia guide.",
+    "airlines": {
+      "cathay": { "program": "Cathay Pacific Asia Miles", "ratio": 1.0 },
+      "virgin_atlantic": { "program": "Virgin Atlantic Flying Club", "ratio": 1.0 }
+    },
+    "hotels": {}
   }
 }

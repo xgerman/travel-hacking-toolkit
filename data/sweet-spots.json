@@ -40,17 +40,17 @@
         "us_east_to_japan": {"miles": 85000, "direction": "one-way"},
         "europe_to_japan": {"miles": 72500, "direction": "one-way"}
       },
-      "surcharges": "mild",
-      "surcharge_estimate": "$150-$250 depending on route",
+      "surcharges": "moderate",
+      "surcharge_estimate": "$360 from US to Japan, $450 from Japan to US (~$730 RT). Updated per Frequent Miler 2026.",
       "why": "ANA The Suite is arguably the best first class product flying. 8 seats in a 1-2-1 config. Krug champagne, multi-course Japanese cuisine, enormous bed. At these mileage rates, it's one of the highest cpp redemptions available.",
-      "transfer_partners": ["Amex MR", "Bilt", "Chase UR", "Citi TY", "Wells Fargo", "Marriott Bonvoy"],
+      "transfer_partners": ["Amex MR", "Bilt", "Chase UR", "Citi TY", "Wells Fargo", "Rove", "Marriott Bonvoy"],
       "capital_one_note": "Capital One transfers to Virgin Red, then 1:1 to Virgin Atlantic Flying Club",
       "booking": {
-        "search_availability": "united.com (look for saver award space on ANA)",
+        "search_availability": "united.com (look for saver award space on ANA) or seats.aero",
         "book_via": "Call Virgin Atlantic at 1-800-365-9500",
         "online_booking": false,
         "hold_policy": "Get hold from VA first, then transfer points. 48 hours to complete transfer.",
-        "tips": ["Only works for flights to/from Japan, not connections beyond", "ANA releases F space ~355 days out", "2 F seats available on same flight is rare, book as soon as released", "Round-trip is exactly 2x one-way cost"]
+        "tips": ["Only works for flights to/from Japan, not connections beyond", "ANA releases F space ~355 days out", "2 F seats available on same flight is rare, book as soon as released", "Round-trip is exactly 2x one-way cost", "VA charges each segment separately — best for nonstop flights"]
       }
     },
     {
@@ -66,8 +66,8 @@
         "us_east_to_japan": {"miles": 60000, "direction": "one-way"},
         "europe_to_japan": {"miles": 52500, "direction": "one-way"}
       },
-      "surcharges": "mild",
-      "surcharge_estimate": "$150-$250 depending on route",
+      "surcharges": "moderate",
+      "surcharge_estimate": "$360 from US to Japan, $450 from Japan to US (~$730 RT). Updated per Frequent Miler 2026.",
       "why": "ANA THE Room business class is a door-equipped suite with a full flat bed. Top 3 business class product in the world. These rates are cheaper than booking through almost any other program.",
       "transfer_partners": ["Amex MR", "Bilt", "Chase UR", "Citi TY", "Wells Fargo", "Marriott Bonvoy"],
       "booking": {

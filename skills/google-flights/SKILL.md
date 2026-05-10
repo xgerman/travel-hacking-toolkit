@@ -18,6 +18,26 @@ Requires `agent-browser` CLI:
 npm install -g agent-browser && agent-browser install
 ```
 
+### Linux ARM64 Workaround
+
+`agent-browser install` does **not** support Linux ARM64 — Chrome for Testing has no ARM64 builds. Use Playwright's bundled Chromium instead:
+
+1. Install Playwright + Chromium (if not already):
+   ```bash
+   pip install playwright && playwright install chromium
+   ```
+2. Pass `--executable-path` pointing to Playwright's Chromium on **every** `agent-browser` command:
+   ```bash
+   agent-browser --executable-path ~/.cache/ms-playwright/chromium-1217/chrome-linux/chrome --session flights open "https://example.com"
+   ```
+3. The daemon caches the executable path for the session, but if it restarts you must pass the flag again. If you see `Chrome exited early` or `requires the chromium snap`, close all sessions and relaunch with the flag:
+   ```bash
+   agent-browser close --all
+   agent-browser --executable-path ~/.cache/ms-playwright/chromium-1217/chrome-linux/chrome --session flights open "..."
+   ```
+
+> **Note:** The Playwright Chromium path may change with version updates. Check `ls ~/.cache/ms-playwright/` for the current directory name.
+
 ## When to Use
 
 - User asks to search/find/compare flights or airfare
@@ -176,3 +196,4 @@ Use for multi-city, premium economy, or when the URL path fails. See the google-
 - **Consent popups**: Click "Accept all" or "Reject all" in the snapshot.
 - **URL fast path didn't work**: Fall back to interactive.
 - **Bot detection / CAPTCHA**: Inform user. Do NOT solve CAPTCHAs.
+- **Empty results (form loads but no flights)**: Google detects Playwright/headless Chromium and silently refuses to render search results. The search form, filters, and footer all load normally but the results area is blank. Screenshot confirms blank page below the filter bar. This is a known issue with Playwright Chromium on Linux — Google's bot detection fingerprints the browser. **Workaround:** Fall back to Kiwi, Skiplagged, Duffel, or Ignav for flight data. SerpAPI (which uses its own Google scraping infra) may also work as a Google Flights proxy.
