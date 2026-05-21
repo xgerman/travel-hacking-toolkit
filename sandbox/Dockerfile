@@ -3,6 +3,35 @@
 #
 # Swap FROM to: claude-code | codex | gemini | opencode | shell
 # Append -docker for Docker-in-sandbox (e.g. copilot-docker).
+
+# ---------------------------------------------------------------------------
+# Stage 1: builder for documentdb-agentic-memory
+#
+# We compile better-sqlite3's native bindings here, then COPY only the
+# resulting dist/ + production node_modules/ into the final sandbox image.
+# This keeps git + the C++ toolchain (~400 MB of headers, gcc, perl, …)
+# out of the runtime layer.
+#
+# Pinning to node:20-bookworm-slim matters: it shares the NODE_MODULE_VERSION
+# (115) with the Node 20 binary inside docker/sandbox-templates:copilot, so
+# the `.node` ABI binary compiled here loads cleanly there. Bumping either
+# side past Node 20 requires updating the other to match.
+# ---------------------------------------------------------------------------
+FROM node:20-bookworm-slim AS memory-builder
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        git python3 make g++ ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /build
+RUN git clone --depth 1 https://github.com/xgerman/documentdb-agentic-memory.git . \
+    && npm install --no-audit --no-fund \
+    && npm run build \
+    && npm prune --omit=dev
+
+# ---------------------------------------------------------------------------
+# Stage 2: the actual sandbox
+# ---------------------------------------------------------------------------
 FROM docker/sandbox-templates:copilot
 
 USER root
@@ -17,6 +46,24 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/* \
     && npm install -g playwright@latest agent-browser@latest \
     && pip3 install --no-cache-dir --break-system-packages patchright
+
+# Drop in the pre-built documentdb-agentic-memory tree from the builder
+# stage. The bins declared in its package.json (documentdb-memory-mcp,
+# documentdb-memory) are exposed via /usr/local/bin symlinks so they
+# resolve for both the `agent` user's shell and any subprocess the
+# Copilot CLI spawns (e.g. the MCP server itself).
+COPY --from=memory-builder /build/dist          /opt/documentdb-memory/dist
+COPY --from=memory-builder /build/node_modules  /opt/documentdb-memory/node_modules
+COPY --from=memory-builder /build/package.json  /opt/documentdb-memory/package.json
+RUN ln -sf /opt/documentdb-memory/dist/server/index.js /usr/local/bin/documentdb-memory-mcp \
+    && ln -sf /opt/documentdb-memory/dist/cli/index.js   /usr/local/bin/documentdb-memory
+
+# Profile snippet that auto-starts the session-history sync daemon in the
+# background at shell login, but only if the user has set DOCUMENTDB_URI.
+# Idempotent via a PID file so re-sourcing /etc/profile (or opening a new
+# shell) does not spawn duplicates.
+COPY sandbox/profile-documentdb-memory.sh /etc/profile.d/documentdb-memory.sh
+RUN chmod +x /etc/profile.d/documentdb-memory.sh
 
 # Download browsers as `agent` so they're accessible at runtime.
 USER agent

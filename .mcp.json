@@ -25,7 +25,20 @@
     },
     "airbnb": {
       "command": "npx",
-      "args": ["-y", "@openbnb/mcp-server-airbnb@latest", "--ignore-robots-txt"]
+      "args": [
+        "-y",
+        "@openbnb/mcp-server-airbnb@latest",
+        "--ignore-robots-txt"
+      ]
+    },
+    "documentdb-memory": {
+      "command": "documentdb-memory-mcp",
+      "env": {
+        "DOCUMENTDB_URI": "${DOCUMENTDB_URI:-unset}",
+        "DOCUMENTDB_DB": "${DOCUMENTDB_DB:-copilot_memory}",
+        "MEMORY_LOG_LEVEL": "${MEMORY_LOG_LEVEL:-info}"
+      },
+      "args": []
     }
   }
 }

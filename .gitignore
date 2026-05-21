@@ -4,6 +4,9 @@
 .env.bak
 .claude/settings.local.json
 
+# Personal session/trip artifacts
+files/
+
 # Dependencies
 node_modules/
 
