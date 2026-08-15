@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "last_updated": "2026-05-09",
+    "last_updated": "2026-08-10",
     "staleness_days": 7,
     "description": "Active credit card transfer bonuses. Each bonus shows the current promotional ratio along with primary sources verifying it. Refreshed weekly via scripts/refresh-transfer-bonuses.py which scrapes Frequent Miler and cross-checks against AwardWallet. Confidence levels per Research Integrity Protocol: VERIFIED = both FM and AwardWallet agree; LIKELY = only FM; UNVERIFIED = inferred or single mention without strong source.",
     "primary_sources": [
@@ -21,148 +21,156 @@
   },
   "active_bonuses": [
     {
-      "id": "chase_ur_to_marriott_bonvoy_65pct_2026_05",
-      "from_program": "chase_ur",
-      "from_display": "Chase Ultimate Rewards",
-      "to_program": "marriott_bonvoy",
-      "to_display": "Marriott Bonvoy",
-      "bonus_pct": 65,
-      "ratio": 1.65,
-      "start_date": "2026-05-01",
-      "end_date_inclusive": "2026-05-15",
-      "confidence": "VERIFIED",
+      "id": "rove_to_qantas_50pct_2026_08",
+      "from_program": "rove",
+      "from_display": "Rove Miles",
+      "to_program": "qantas",
+      "to_display": "Qantas Frequent Flyer",
+      "bonus_pct": 50,
+      "ratio": 1.5,
+      "start_date": "2026-07-15",
+      "end_date_inclusive": "2026-08-14",
+      "confidence": "LIKELY",
       "sources": [
-        "https://frequentmiler.com/chase-ultimate-rewards-offering-65-transfer-bonus-to-marriott/",
-        "https://awardwallet.com/news/credit-card-transfer-bonuses/"
+        "https://frequentmiler.com/rove-adds-qantas-as-transfer-partner-launches-with-50-transfer-bonus/"
       ]
     },
     {
-      "id": "citi_typ_to_leading_hotels_of_world_25pct_2026_05",
+      "id": "citi_typ_to_flying_blue_20pct_2026_08",
       "from_program": "citi_typ",
       "from_display": "Citi ThankYou Rewards",
-      "to_program": "leading_hotels_of_world",
-      "to_display": "Leading Hotels of the World",
-      "bonus_pct": 25,
-      "ratio": 1.25,
-      "start_date": "2026-04-19",
-      "end_date_inclusive": "2026-05-16",
-      "confidence": "VERIFIED",
-      "sources": [
-        "https://frequentmiler.com/25-transfer-bonus-from-citi-to-leaders-hotels-of-the-world-leaders-club/",
-        "https://awardwallet.com/news/credit-card-transfer-bonuses/"
-      ],
-      "standard_ratio": 1.0,
-      "effective_ratio": 1.25,
-      "transfer_example": "1,000 Citi TYP -> 1,250 LHW Leaders Club points (when transferred via the eligible Citi card combo)",
-      "notes": "Confidence is LIKELY rather than VERIFIED because only Frequent Miler currently mentions this bonus - TPG and AwardWallet have not yet picked it up. LHW is a niche luxury hotel collection. Useful primarily if you have a specific upcoming LHW stay; otherwise skip."
-    },
-    {
-      "id": "chase_ur_to_flying_blue_20pct_2026_05",
-      "from_program": "chase_ur",
-      "from_display": "Chase Ultimate Rewards",
       "to_program": "flying_blue",
       "to_display": "Air France KLM Flying Blue",
       "bonus_pct": 20,
       "ratio": 1.2,
-      "start_date": "2026-05-01",
-      "end_date_inclusive": "2026-05-27",
+      "start_date": "2026-07-19",
+      "end_date_inclusive": "2026-08-22",
       "confidence": "VERIFIED",
       "sources": [
-        "https://frequentmiler.com/20-transfer-bonus-from-chase-ultimate-rewards-to-air-france-klm-flying-blue/",
+        "https://frequentmiler.com/citi-thankyou-air-france-klm-flying-blue-20-percent-transfer-bonus/",
         "https://awardwallet.com/news/credit-card-transfer-bonuses/"
       ]
     },
     {
-      "id": "amex_membership_rewards_to_hilton_honors_20pct_2026_05",
-      "from_program": "amex_membership_rewards",
-      "from_display": "Amex Membership Rewards",
-      "to_program": "hilton_honors",
-      "to_display": "Hilton",
-      "bonus_pct": 20,
-      "ratio": 1.2,
-      "start_date": "2026-04-28",
-      "end_date_inclusive": "2026-05-30",
+      "id": "chase_ur_to_ihg_one_rewards_70pct_2026_08",
+      "from_program": "chase_ur",
+      "from_display": "Chase Ultimate Rewards",
+      "to_program": "ihg_one_rewards",
+      "to_display": "IHG",
+      "bonus_pct": 70,
+      "ratio": 1.7,
+      "start_date": "2026-07-31",
+      "end_date_inclusive": "2026-08-31",
       "confidence": "VERIFIED",
       "sources": [
-        "https://frequentmiler.com/amex-membership-rewards-20-transfer-bonus-to-hilton-honors-1000-2400/",
+        "https://frequentmiler.com/chase-is-offering-a-70-100-transfer-bonus-to-ihg-one-rewards-give-it-a-miss/",
         "https://awardwallet.com/news/credit-card-transfer-bonuses/"
-      ],
-      "standard_ratio": 2.0,
-      "effective_ratio": 2.4,
-      "transfer_example": "1,000 MR points -> 2,400 Hilton Honors points",
-      "notes": "Hilton transfers from MR are usually a poor use of MR (TPG values MR at ~2 cpp, Hilton at ~0.5 cpp, so 1:2.4 = ~1.2 cpp effective). Only consider for a specific high-value Hilton redemption."
+      ]
     },
     {
-      "id": "capital_one_to_qantas_20pct_2026_05",
+      "id": "capital_one_to_avianca_lifemiles_15pct_2026_08",
       "from_program": "capital_one",
       "from_display": "Capital One Miles",
-      "to_program": "qantas",
-      "to_display": "Qantas Frequent Flyer",
-      "bonus_pct": 20,
-      "ratio": 1.2,
-      "start_date": "2026-05-01",
-      "end_date_inclusive": "2026-05-31",
+      "to_program": "avianca_lifemiles",
+      "to_display": "Avianca LifeMiles",
+      "bonus_pct": 15,
+      "ratio": 1.15,
+      "start_date": "2026-08-01",
+      "end_date_inclusive": "2026-08-31",
       "confidence": "VERIFIED",
       "sources": [
-        "https://frequentmiler.com/20-transfer-bonus-from-capital-one-miles-to-qantas/",
+        "https://frequentmiler.com/15-transfer-bonus-from-capital-one-to-lifemiles-avianca/",
         "https://awardwallet.com/news/credit-card-transfer-bonuses/"
       ]
     },
     {
-      "id": "rove_to_aeroplan_25pct_2026_06",
-      "from_program": "rove",
-      "from_display": "Rove Miles",
-      "to_program": "aeroplan",
-      "to_display": "Air Canada Aeroplan",
-      "bonus_pct": 25,
-      "ratio": 1.25,
-      "start_date": "2026-05-07",
-      "end_date_inclusive": "2026-06-06",
-      "confidence": "LIKELY",
+      "id": "amex_membership_rewards_to_british_airways_avios_30pct_2026_09",
+      "from_program": "amex_membership_rewards",
+      "from_display": "Amex Membership Rewards",
+      "to_program": "british_airways_avios",
+      "to_display": "British Airways Avios",
+      "bonus_pct": 30,
+      "ratio": 1.3,
+      "start_date": "2026-08-03",
+      "end_date_inclusive": "2026-09-27",
+      "confidence": "VERIFIED",
       "sources": [
-        "https://frequentmiler.com/rove-miles-adds-air-canada-aeroplan-as-its-newest-transfer-partner/"
+        "https://frequentmiler.com/30-percent-transfer-bonus-american-express-membership-rewards-avios-british-airways-iberia-aer-lingus/",
+        "https://awardwallet.com/news/credit-card-transfer-bonuses/"
+      ]
+    },
+    {
+      "id": "amex_membership_rewards_to_iberia_avios_30pct_2026_09",
+      "from_program": "amex_membership_rewards",
+      "from_display": "Amex Membership Rewards",
+      "to_program": "iberia_avios",
+      "to_display": "Iberia Avios",
+      "bonus_pct": 30,
+      "ratio": 1.3,
+      "start_date": "2026-08-03",
+      "end_date_inclusive": "2026-09-27",
+      "confidence": "VERIFIED",
+      "sources": [
+        "https://frequentmiler.com/30-percent-transfer-bonus-american-express-membership-rewards-avios-british-airways-iberia-aer-lingus/",
+        "https://awardwallet.com/news/credit-card-transfer-bonuses/"
+      ]
+    },
+    {
+      "id": "amex_membership_rewards_to_aer_lingus_avios_30pct_2026_09",
+      "from_program": "amex_membership_rewards",
+      "from_display": "Amex Membership Rewards",
+      "to_program": "aer_lingus_avios",
+      "to_display": "Aer Lingus Avios",
+      "bonus_pct": 30,
+      "ratio": 1.3,
+      "start_date": "2026-08-03",
+      "end_date_inclusive": "2026-09-27",
+      "confidence": "VERIFIED",
+      "sources": [
+        "https://frequentmiler.com/30-percent-transfer-bonus-american-express-membership-rewards-avios-british-airways-iberia-aer-lingus/",
+        "https://awardwallet.com/news/credit-card-transfer-bonuses/"
       ]
     }
   ],
   "expired_recently": [
     {
-      "id": "citi_typ_to_avianca_25pct_2026_04",
-      "from_display": "Citi ThankYou Rewards",
-      "to_display": "Avianca LifeMiles",
-      "bonus_pct": 25,
-      "end_date_inclusive": "2026-04-18",
-      "note": "Recently expired. Avianca LifeMiles bonuses recur frequently (see history)."
-    },
-    {
-      "id": "citi_typ_to_virgin_atlantic_30pct_2026_04",
-      "from_display": "Citi ThankYou Rewards",
+      "id": "chase_ur_to_virgin_atlantic_30pct_2026_07",
+      "from_display": "Chase Ultimate Rewards",
       "to_display": "Virgin Atlantic Flying Club",
       "bonus_pct": 30,
-      "end_date_inclusive": "2026-04-18",
-      "note": "Recently expired. Virgin Atlantic bonuses recur frequently."
-    },
-    {
-      "id": "chase_ur_to_aeroplan_20pct_2026_04",
-      "from_display": "Chase Ultimate Rewards",
-      "to_display": "Air Canada Aeroplan",
-      "bonus_pct": 20,
-      "end_date_inclusive": "2026-04-30",
+      "end_date_inclusive": "2026-07-14",
       "note": "Recently expired (auto-moved from active list)."
     },
     {
-      "id": "chase_ur_to_ihg_one_rewards_70pct_2026_04",
+      "id": "amex_membership_rewards_to_hilton_honors_20pct_2026_07",
+      "from_display": "Amex Membership Rewards",
+      "to_display": "Hilton",
+      "bonus_pct": 20,
+      "end_date_inclusive": "2026-07-14",
+      "note": "Recently expired (auto-moved from active list)."
+    },
+    {
+      "id": "amex_membership_rewards_to_avianca_lifemiles_15pct_2026_07",
+      "from_display": "Amex Membership Rewards",
+      "to_display": "Avianca LifeMiles",
+      "bonus_pct": 15,
+      "end_date_inclusive": "2026-07-15",
+      "note": "Recently expired (auto-moved from active list)."
+    },
+    {
+      "id": "chase_ur_to_ihg_one_rewards_100pct_2026_07",
       "from_display": "Chase Ultimate Rewards",
       "to_display": "IHG",
-      "bonus_pct": 70,
-      "end_date_inclusive": "2026-04-30",
+      "bonus_pct": 100,
+      "end_date_inclusive": "2026-07-30",
       "note": "Recently expired (auto-moved from active list)."
     },
     {
-      "id": "capital_one_to_jal_mileage_bank_30pct_2026_04",
-      "from_display": "Capital One Miles",
-      "to_display": "JAL (Japan Airlines) Mileage Bank",
+      "id": "amex_membership_rewards_to_virgin_atlantic_30pct_2026_07",
+      "from_display": "Amex Membership Rewards",
+      "to_display": "Virgin Atlantic Flying Club",
       "bonus_pct": 30,
-      "end_date_inclusive": "2026-04-30",
+      "end_date_inclusive": "2026-07-31",
       "note": "Recently expired (auto-moved from active list)."
     }
   ],

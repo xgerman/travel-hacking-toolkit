@@ -1,8 +1,9 @@
 ---
 name: gardening
 description: Audit and tend to existing travel reservations. Reads a user-provided reservations file, then systematically checks every booking for price drops, better cabin availability, improved routings, schedule changes, nearby airport alternatives, and award repricing opportunities. Invoke proactively on a regular cadence or when the user says "garden", "check my bookings", "audit reservations", "price drop", "better routing", "did my flight change", "tend reservations", "reservation maintenance", or "check my trips".
-category: workflow
-summary: Reservation gardening — systematically audit booked trips for price drops, better cabins, schedule changes, and improved routings.
+category: orchestration
+summary: Audit existing reservations for price drops, better cabins, schedule changes, and improved routings.
+api_key: Uses individual skill keys
 ---
 
 # Reservation Gardening

@@ -26,11 +26,30 @@ This is not a pick-one list. Each source returns different results, different pr
 
 **Run ALL of these in parallel:** Duffel + Ignav + Google Flights + Skiplagged + Kiwi.
 
+Skiplagged and Kiwi are keyless MCP servers — they are available in every properly launched session. Attempt the tool call before ever claiming MCP is unavailable, and never substitute improvised browser scraping for these sources (see `fallback-and-resilience`).
+
 Always add Seats.aero for award comparison. Always run the Southwest skill if SW flies the route.
 
 Don't skip sources. Don't assume one source has everything. Present the combined results with the best options highlighted regardless of which source found them.
 
 **For a single unified comparison, use the `compare-flights` skill** which orchestrates all of the above in parallel and applies transfer partner optimization.
+
+## Round Trip vs One-Way Construction
+
+When the trip has a return date, price BOTH constructions — proactively, without being asked:
+
+1. **The round-trip fare** on every source (Duffel, Ignav, Kiwi, Skiplagged, and Google Flights all quote returns).
+2. **Two one-ways**, searched independently — which also surfaces the mixed construction (outbound on carrier A, return on carrier B) that round-trip searches can't see.
+
+Run all of it in the same parallel batch; it's two extra searches, not a second pass.
+
+Which wins is route-dependent, so never assume:
+
+- **Round trips often win internationally** on legacy carriers, where return fares are discounted relative to two one-ways.
+- **One-way pairs often win domestically**, on ULCCs, and anywhere Southwest flies (SW prices every leg as a one-way). They also buy flexibility: each leg can be changed or canceled independently.
+- **Mixed-carrier pairs** frequently beat both when outbound and return are priced by different airlines' sale calendars.
+
+Present the verdict explicitly with the delta: "Round trip $842 vs best one-way pair $918 — book the round trip, saves $76" (or the reverse). If the gap is under ~$50, mention the flexibility advantage of separate tickets before recommending the round trip.
 
 ## For Southwest Specifically
 
